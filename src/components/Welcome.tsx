@@ -22,8 +22,8 @@ const Welcome = () => {
     <div className="min-h-screen bg-gradient-to-b from-brand-teal/20 to-brand-teal/5 flex flex-col items-center justify-center p-4">
       <div className="max-w-4xl w-full space-y-8">
         <div className="flex flex-col items-center space-y-6">
-          <img src="/lovable-uploads/37adfbb6-28a2-4ded-90a9-5ebb5e096e54.png" alt="Erciyas Logo" className="h-24" />
-          <img src="/lovable-uploads/8b04f4f2-1c97-4519-b46d-a4397467636c.png" alt="3P Metrics Logo" className="h-24" />
+          <img src="/lovable-uploads/0177ed63-884d-4b03-b8aa-682617497ef7.png" alt="Erciyas Logo" className="h-24" />
+          <img src="/lovable-uploads/455373df-f660-42a6-976d-a005c691c821.png" alt="3P Metrics Logo" className="h-24" />
         </div>
         
         <h1 className="text-4xl font-bold text-center text-brand-teal mb-6">
