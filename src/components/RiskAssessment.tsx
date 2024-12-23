@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import * as XLSX from 'xlsx';
+import { RiskInputs } from "./RiskInputs";
+import { SavedAssessments } from "./SavedAssessments";
 
 export type RiskAssessmentData = {
   department: string;
@@ -121,96 +121,30 @@ export const RiskAssessment = ({
     <div className="p-4 space-y-4">
       <h2 className="text-xl font-semibold mb-4">Risk Değerlendirmesi</h2>
       
-      <div className="space-y-4">
-        <div className="grid w-full items-center gap-1.5">
-          <Label htmlFor="probability">Olasılık (0.1-10)</Label>
-          <Input
-            id="probability"
-            type="number"
-            step="0.1"
-            min="0.1"
-            max="10"
-            value={probability}
-            onChange={(e) => setProbability(e.target.value)}
-          />
-          {probability && (
-            <p className="text-sm text-gray-600 mt-1">
-              {getProbabilityDescription(Number(probability))}
-            </p>
-          )}
-        </div>
+      <RiskInputs
+        probability={probability}
+        setProbability={setProbability}
+        frequency={frequency}
+        setFrequency={setFrequency}
+        severity={severity}
+        setSeverity={setSeverity}
+        getProbabilityDescription={getProbabilityDescription}
+        getFrequencyDescription={getFrequencyDescription}
+      />
 
-        <div className="grid w-full items-center gap-1.5">
-          <Label htmlFor="frequency">Frekans (0.1-10)</Label>
-          <Input
-            id="frequency"
-            type="number"
-            step="0.1"
-            min="0.1"
-            max="10"
-            value={frequency}
-            onChange={(e) => setFrequency(e.target.value)}
-          />
-          {frequency && (
-            <p className="text-sm text-gray-600 mt-1">
-              {getFrequencyDescription(Number(frequency))}
-            </p>
-          )}
-        </div>
-
-        <div className="grid w-full items-center gap-1.5">
-          <Label htmlFor="severity">Şiddet (0.1-100)</Label>
-          <Input
-            id="severity"
-            type="number"
-            step="0.1"
-            min="0.1"
-            max="100"
-            value={severity}
-            onChange={(e) => setSeverity(e.target.value)}
-          />
-        </div>
-
-        <div className="flex gap-2">
-          <Button onClick={handleCalculate} className="flex-1">
-            Hesapla ve Kaydet
-          </Button>
-          <Button onClick={handleExport} variant="outline">
-            Excel'e Aktar
-          </Button>
-        </div>
+      <div className="flex gap-2">
+        <Button onClick={handleCalculate} className="flex-1">
+          Hesapla ve Kaydet
+        </Button>
+        <Button onClick={handleExport} variant="outline">
+          Excel'e Aktar
+        </Button>
       </div>
 
-      {savedAssessments.length > 0 && (
-        <div className="mt-8">
-          <h3 className="text-lg font-semibold mb-4">Kaydedilen Değerlendirmeler</h3>
-          <div className="space-y-4">
-            {savedAssessments.map((assessment, index) => (
-              <div key={index} className="flex justify-between items-center p-4 bg-gray-50 rounded-lg">
-                <div>
-                  <p className="font-medium">{assessment.risk}</p>
-                  <p className="text-sm text-gray-600">
-                    {assessment.department} - {assessment.valueChainStep}
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    Risk Skoru: {assessment.riskScore.toFixed(2)}
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    Finansal Etki: {assessment.financialImpact}
-                  </p>
-                </div>
-                <Button
-                  variant="destructive"
-                  size="sm"
-                  onClick={() => handleDelete(index)}
-                >
-                  Sil
-                </Button>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+      <SavedAssessments
+        assessments={savedAssessments}
+        onDelete={handleDelete}
+      />
     </div>
   );
 };
