@@ -2,31 +2,29 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { cn } from "@/lib/utils";
 
 const risks = [
-  "Aşırı Hava Olayları", "Deniz Seviyesinde Yükselme", "Enerji Maliyetlerinde Artış",
-  "Heyelan", "Meterolojik Kuraklık", "Orman Yangınları", "Ortalama Sıcaklık Artışı",
-  "Sıcak Hava Dalgaları", "Su Kirliliği", "Su Stresi ve Kıtlığı", "Şiddetli Rüzgarlar",
-  "Şiddetli Yağışlar ve Sel", "Düşük Karbonlu Üretim Sistemleri", "ETS (Emisyon Ticaret Sistemi)",
-  "Karbon Vergisi", "Paydaş Beklentilerindeki Değişimler", "Sürdürülebilir Finansman",
-  "Sürdürülebilir Ürün Talebi", "Yeşil Sertifikalar", "Yüksek Başlangıç Yatırımları",
-  "İklim Değişikliği", "Atık Yönetimi", "Doğal Kaynak Kıtlığı", "Emisyon Yönetimi",
-  "Enerji Yönetimi", "Karbon Ayak İzi", "Kritik Düzeyde Küresel Sistem Değişimi",
-  "Sürdürülebilirlik", "Temiz Enerji Fırsatları", "Temiz ve Kaliteli Suya Erişim",
-  "Toksik Emisyonlar", "Eşitlik, Çeşitlik ve Kapsayıcılık", "Çalışan Hakları",
-  "İşgücü Yönetimi", "Yetenek Kaybı", "Adil Ücretlendirme", "Ürün Etiketleme",
-  "Örgütlenme Özgürlüğü", "Çalışan Memnuniyeti", "Alım gücünde azalma/daralma",
-  "Ekonomik Durgunluk ve Eflasyon", "Likidite Riski", "Kur Farkı Riski",
-  "Politik ve Ekonomik İstikrarsızlık", "Yanlış bilgi ve dezenformasyon", "Siber güvensizlik",
-  "Teknolojik gelişmelere uyum sağlayamama", "Mevcut Yenilikler ve Gelişen Teknoloji",
-  "Dijital kapasite", "Yönetişim Gereksinimleri", "Şeffaflık ve İzlenebilirlik",
-  "İtibar Riskleri", "İş Kazaları", "Müşteri Memnuniyeti", "Ürün Kalitesi",
-  "Taşeronların İSG riskleri", "Yolsuzlukla ve rüşvetle mücadele",
-  "Yeni Çalışma Düzeni ve Beklentiler", "Stratejik Marka Algısı ve Pazar Payı Kaybı",
-  "Tedarik Zinciri Yönetimi", "Tedarik Zinciri Çeşitliliği",
-  "Tedarik Zinciri Çevresel Uygunluk", "Tedarik Zinciri Sosyal Uygunluk",
-  "Raporlama Standartları ve Regülasyonlar", "İhracat kotaları/yasakları",
-  "Yasal uyuşmazlık", "Yasal Kısıtlamalar ve Vergiler", "Ekonomik fırsat eksikliği",
-  "Zorunlu göç", "Politik kutuplaşma", "Uluslararası silahlı çatışma", "Deprem", "Yangın"
-];
+  "Adil Ücretlendirme", "Alım gücünde azalma/daralma", "Atık Yönetimi", "Aşırı Hava Olayları",
+  "Çalışan Hakları", "Çalışan Memnuniyeti", "Deniz Seviyesinde Yükselme", "Deprem",
+  "Dijital kapasite", "Doğal Kaynak Kıtlığı", "Düşük Karbonlu Üretim Sistemleri",
+  "Ekonomik Durgunluk ve Eflasyon", "Ekonomik fırsat eksikliği", "Emisyon Yönetimi",
+  "Enerji Maliyetlerinde Artış", "Enerji Yönetimi", "ETS (Emisyon Ticaret Sistemi)",
+  "Eşitlik, Çeşitlik ve Kapsayıcılık", "Heyelan", "İhracat kotaları/yasakları",
+  "İklim Değişikliği", "İş Kazaları", "İşgücü Yönetimi", "İtibar Riskleri",
+  "Karbon Ayak İzi", "Karbon Vergisi", "Kritik Düzeyde Küresel Sistem Değişimi",
+  "Kur Farkı Riski", "Likidite Riski", "Meterolojik Kuraklık", "Mevcut Yenilikler ve Gelişen Teknoloji",
+  "Müşteri Memnuniyeti", "Orman Yangınları", "Ortalama Sıcaklık Artışı",
+  "Örgütlenme Özgürlüğü", "Paydaş Beklentilerindeki Değişimler", "Politik kutuplaşma",
+  "Politik ve Ekonomik İstikrarsızlık", "Raporlama Standartları ve Regülasyonlar",
+  "Siber güvensizlik", "Stratejik Marka Algısı ve Pazar Payı Kaybı", "Su Kirliliği",
+  "Su Stresi ve Kıtlığı", "Sürdürülebilir Finansman", "Sürdürülebilir Ürün Talebi",
+  "Sürdürülebilirlik", "Şeffaflık ve İzlenebilirlik", "Şiddetli Rüzgarlar",
+  "Şiddetli Yağışlar ve Sel", "Taşeronların İSG riskleri", "Teknolojik gelişmelere uyum sağlayamama",
+  "Tedarik Zinciri Çevresel Uygunluk", "Tedarik Zinciri Çeşitliliği",
+  "Tedarik Zinciri Sosyal Uygunluk", "Tedarik Zinciri Yönetimi", "Temiz Enerji Fırsatları",
+  "Temiz ve Kaliteli Suya Erişim", "Toksik Emisyonlar", "Uluslararası silahlı çatışma",
+  "Ürün Etiketleme", "Ürün Kalitesi", "Yangın", "Yasal Kısıtlamalar ve Vergiler",
+  "Yasal uyuşmazlık", "Yeşil Sertifikalar", "Yetenek Kaybı", "Yeni Çalışma Düzeni ve Beklentiler",
+  "Yolsuzlukla ve rüşvetle mücadele", "Yüksek Başlangıç Yatırımları", "Zorunlu göç"
+].sort();
 
 interface RiskSelectorProps {
   selectedRisk: string | null;

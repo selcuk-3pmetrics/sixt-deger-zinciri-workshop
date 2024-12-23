@@ -64,7 +64,9 @@ export const ValueChain = ({ selectedStep, onSelect }: ValueChainProps) => {
             onClick={() => onSelect(step.id)}
             className={cn(
               "value-chain-step text-left",
-              selectedStep === step.id ? "bg-gray-100" : "hover:bg-gray-50"
+              selectedStep === step.id 
+                ? "bg-brand-teal/10 border-brand-teal shadow-md transform scale-105" 
+                : "hover:bg-gray-50"
             )}
           >
             <h3 className="font-medium mb-2">{step.name}</h3>
