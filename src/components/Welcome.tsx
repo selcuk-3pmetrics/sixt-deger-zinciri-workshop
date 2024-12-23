@@ -19,14 +19,13 @@ const Welcome = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-brand-teal/20 to-brand-teal/5 flex flex-col items-center justify-center p-4">
-      <div className="max-w-4xl w-full space-y-8">
-        <div className="flex flex-col items-center space-y-6">
+    <div className="min-h-screen bg-gradient-to-b from-[#ea384c]/20 to-black/5 flex flex-col items-center justify-between p-4">
+      <div className="max-w-4xl w-full flex-grow flex flex-col items-center justify-center space-y-8">
+        <div className="flex flex-col items-center">
           <img src="/lovable-uploads/0177ed63-884d-4b03-b8aa-682617497ef7.png" alt="Erciyas Logo" className="h-24" />
-          <img src="/lovable-uploads/455373df-f660-42a6-976d-a005c691c821.png" alt="3P Metrics Logo" className="h-24" />
         </div>
         
-        <h1 className="text-4xl font-bold text-center text-brand-teal mb-6">
+        <h1 className="text-4xl font-bold text-center text-[#ea384c] mb-6">
           Değer Zinciri Çalışmasına Hoşgeldiniz
         </h1>
         
@@ -51,11 +50,15 @@ const Welcome = () => {
                 className="w-full"
               />
             </div>
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full bg-[#ea384c] hover:bg-[#ea384c]/90">
               Giriş Yap
             </Button>
           </form>
         </div>
+      </div>
+      
+      <div className="mt-8 mb-4">
+        <img src="/lovable-uploads/455373df-f660-42a6-976d-a005c691c821.png" alt="3P Metrics Logo" className="h-16" />
       </div>
     </div>
   );
