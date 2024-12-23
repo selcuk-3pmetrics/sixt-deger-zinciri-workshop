@@ -62,17 +62,20 @@ const Index = () => {
           
           {riskScore !== null && (
             <div className="mt-8 p-4 bg-gray-50 rounded-lg">
-              <div className="flex justify-between items-start">
+              <div className="grid grid-cols-3 gap-4">
                 <div>
                   <h3 className="text-lg font-semibold mb-2">Risk Skoru</h3>
                   <p className="text-2xl font-bold">
                     {riskScore.toFixed(2)}
-                    <span className="text-sm font-normal ml-2 text-gray-600">
-                      ({getRiskDegree(riskScore)})
-                    </span>
                   </p>
                 </div>
-                <div>
+                <div className="text-center">
+                  <h3 className="text-lg font-semibold mb-2">Risk Derecesi</h3>
+                  <p className="text-lg text-gray-600">
+                    {getRiskDegree(riskScore)}
+                  </p>
+                </div>
+                <div className="text-right">
                   <h3 className="text-lg font-semibold mb-2">Finansal Etki</h3>
                   <p className="text-lg">{financialImpact}</p>
                 </div>
