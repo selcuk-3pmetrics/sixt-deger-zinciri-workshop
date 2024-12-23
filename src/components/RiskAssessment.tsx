@@ -32,6 +32,26 @@ const getFinancialImpact = (riskScore: number): string => {
   return "1 - 0M Dolar";
 };
 
+const getProbabilityDescription = (value: number): string => {
+  if (value === 10) return "Beklenir, kesin";
+  if (value === 8) return "Yüksek/oldukça mümkün";
+  if (value === 6) return "Olası";
+  if (value === 3) return "Mümkün, fakat düşük";
+  if (value === 1) return "Beklenmez fakat mümkün";
+  if (value === 0.1) return "Beklenmez";
+  return "";
+};
+
+const getFrequencyDescription = (value: number): string => {
+  if (value === 10) return "Hemen hemen sürekli (Hergün)";
+  if (value === 8) return "Sık (Ayda bir veya birkaç defa)";
+  if (value === 6) return "Ara sıra (6 ayda 1)";
+  if (value === 3) return "Sık değil (Yılda birkaç defa)";
+  if (value === 1) return "Seyrek (3 yılda 1)";
+  if (value === 0.1) return "Çok seyrek (>3 yıl)";
+  return "";
+};
+
 export const RiskAssessment = ({ 
   onCalculate, 
   selectedDepartment,
@@ -113,6 +133,11 @@ export const RiskAssessment = ({
             value={probability}
             onChange={(e) => setProbability(e.target.value)}
           />
+          {probability && (
+            <p className="text-sm text-gray-600 mt-1">
+              {getProbabilityDescription(Number(probability))}
+            </p>
+          )}
         </div>
 
         <div className="grid w-full items-center gap-1.5">
@@ -126,6 +151,11 @@ export const RiskAssessment = ({
             value={frequency}
             onChange={(e) => setFrequency(e.target.value)}
           />
+          {frequency && (
+            <p className="text-sm text-gray-600 mt-1">
+              {getFrequencyDescription(Number(frequency))}
+            </p>
+          )}
         </div>
 
         <div className="grid w-full items-center gap-1.5">
