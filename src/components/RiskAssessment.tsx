@@ -18,7 +18,7 @@ export type RiskAssessmentData = {
 };
 
 interface RiskAssessmentProps {
-  onCalculate: (riskScore: number) => void;
+  onCalculate: (riskScore: number, financialImpact: string) => void;
   selectedDepartment: string | null;
   selectedRisk: string | null;
   selectedStep: string | null;
@@ -80,7 +80,7 @@ export const RiskAssessment = ({
 
     const riskScore = p * f * s;
     const financialImpact = getFinancialImpact(riskScore);
-    onCalculate(riskScore);
+    onCalculate(riskScore, financialImpact);
 
     const newAssessment: RiskAssessmentData = {
       department: selectedDepartment,

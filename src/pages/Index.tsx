@@ -9,9 +9,19 @@ const Index = () => {
   const [selectedRisk, setSelectedRisk] = useState<string | null>(null);
   const [selectedStep, setSelectedStep] = useState<string | null>(null);
   const [riskScore, setRiskScore] = useState<number | null>(null);
+  const [financialImpact, setFinancialImpact] = useState<string>("");
 
-  const handleRiskCalculation = (score: number) => {
+  const handleRiskCalculation = (score: number, impact: string) => {
     setRiskScore(score);
+    setFinancialImpact(impact);
+  };
+
+  const getRiskDegree = (score: number): string => {
+    if (score > 400) return "Çok Yüksek";
+    if (score > 200) return "Yüksek";
+    if (score > 70) return "Orta";
+    if (score > 20) return "Düşük";
+    return "Çok Düşük";
   };
 
   return (
@@ -52,16 +62,21 @@ const Index = () => {
           
           {riskScore !== null && (
             <div className="mt-8 p-4 bg-gray-50 rounded-lg">
-              <h3 className="text-lg font-semibold mb-2">Risk Skoru</h3>
-              <p className="text-2xl font-bold">
-                {riskScore.toFixed(2)}
-                <span className="text-sm font-normal ml-2">
-                  ({riskScore > 400 ? 'Çok Yüksek' :
-                    riskScore > 200 ? 'Yüksek' :
-                    riskScore > 70 ? 'Orta' :
-                    riskScore > 20 ? 'Düşük' : 'Çok Düşük'})
-                </span>
-              </p>
+              <div className="flex justify-between items-start">
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Risk Skoru</h3>
+                  <p className="text-2xl font-bold">
+                    {riskScore.toFixed(2)}
+                    <span className="text-sm font-normal ml-2 text-gray-600">
+                      ({getRiskDegree(riskScore)})
+                    </span>
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Finansal Etki</h3>
+                  <p className="text-lg">{financialImpact}</p>
+                </div>
+              </div>
             </div>
           )}
         </div>
