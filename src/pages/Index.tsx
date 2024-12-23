@@ -26,7 +26,7 @@ const Index = () => {
 
   return (
     <div className="container mx-auto py-8 px-4 max-w-4xl">
-      <h1 className="text-3xl font-bold text-center mb-8">Risk Değerlendirme Sistemi</h1>
+      <h1 className="text-3xl font-bold text-center mb-8 text-brand-teal">Risk Değerlendirme Sistemi</h1>
       
       <div className="space-y-8">
         <DepartmentSelector
@@ -58,23 +58,23 @@ const Index = () => {
         )}
         
         {riskScore !== null && (
-          <div className="p-4 bg-gray-50 rounded-lg">
+          <div className="p-4 bg-gradient-to-r from-brand-mint/10 to-brand-teal/10 rounded-lg border border-brand-teal/20">
             <div className="grid grid-cols-3 gap-4">
               <div>
-                <h3 className="text-lg font-semibold mb-2">Risk Skoru</h3>
-                <p className="text-2xl font-bold">
+                <h3 className="text-lg font-semibold mb-2 text-brand-teal">Risk Skoru</h3>
+                <p className="text-2xl font-bold text-brand-teal">
                   {riskScore.toFixed(2)}
                 </p>
               </div>
               <div className="text-center">
-                <h3 className="text-lg font-semibold mb-2">Risk Derecesi</h3>
-                <p className="text-lg text-gray-600">
+                <h3 className="text-lg font-semibold mb-2 text-brand-teal">Risk Derecesi</h3>
+                <p className="text-lg text-brand-mint">
                   {getRiskDegree(riskScore)}
                 </p>
               </div>
               <div className="text-right">
-                <h3 className="text-lg font-semibold mb-2">Finansal Etki</h3>
-                <p className="text-lg">{financialImpact}</p>
+                <h3 className="text-lg font-semibold mb-2 text-brand-teal">Finansal Etki</h3>
+                <p className="text-lg text-brand-mint">{financialImpact}</p>
               </div>
             </div>
           </div>
