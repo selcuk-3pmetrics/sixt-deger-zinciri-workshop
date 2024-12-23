@@ -14,13 +14,13 @@ const departments: Department[] = [
   { id: "factory", name: "Fabrika Yönetimi", icon: Square, color: "text-[#F97316]" },
   { id: "quality", name: "Kalite", icon: Circle, color: "text-[#0EA5E9]" },
   { id: "sales", name: "Satış", icon: Star, color: "text-[#D946EF]" },
-  { id: "purchasing", name: "Satın alma-1", icon: RectangleVertical, color: "text-[#8B5CF6]" },
+  { id: "purchasing", name: "Satın Alma", icon: RectangleVertical, color: "text-[#8B5CF6]" },
   { id: "logistics", name: "Lojistik", icon: RectangleHorizontal, color: "text-[#1EAEDB]" },
   { id: "finance", name: "Finans", icon: Triangle, color: "text-[#221F26]" },
-  { id: "hr", name: "İK", icon: Square, color: "text-[#F2FCE2]" },
-  { id: "it", name: "BT", icon: Circle, color: "text-[#403E43]" },
-  { id: "communications", name: "Kurumsal iletişim", icon: Star, color: "text-[#FEC6A1]" },
-  { id: "environment", name: "Çevre yönetimi", icon: Leaf, color: "text-[#FDE1D3]" }
+  { id: "hr", name: "İnsan Kaynakları", icon: Square, color: "text-[#D946EF]" },
+  { id: "it", name: "Bilgi Teknolojileri", icon: Circle, color: "text-[#403E43]" },
+  { id: "communications", name: "Kurumsal İletişim", icon: Star, color: "text-[#FEC6A1]" },
+  { id: "environment", name: "Çevre Yönetimi", icon: Leaf, color: "text-[#FDE1D3]" }
 ];
 
 interface DepartmentSelectorProps {
