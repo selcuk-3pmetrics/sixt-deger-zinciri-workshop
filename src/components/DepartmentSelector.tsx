@@ -1,4 +1,4 @@
-import { Circle, Triangle, Hexagon, Square, Star, Leaf, Rectangle } from "lucide-react";
+import { Circle, Triangle, Hexagon, Square, Star, Leaf, RectangleHorizontal } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export type Department = {
@@ -12,7 +12,7 @@ const departments: Department[] = [
   { id: "it", name: "IT", icon: Circle, color: "text-blue-500" },
   { id: "finance", name: "Finans", icon: Triangle, color: "text-green-500" },
   { id: "management", name: "Üst Yönetim", icon: Hexagon, color: "text-gray-500" },
-  { id: "hr", name: "İnsan Kaynakları", icon: Rectangle, color: "text-yellow-500" },
+  { id: "hr", name: "İnsan Kaynakları", icon: RectangleHorizontal, color: "text-yellow-500" },
   { id: "risk", name: "Risk Yönetimi", icon: Star, color: "text-red-500" },
   { id: "sustainability", name: "Sürdürülebilirlik", icon: Leaf, color: "text-orange-500" },
   { id: "rnd", name: "Ar-Ge", icon: Square, color: "text-purple-500" }
