@@ -13,6 +13,7 @@ export type RiskAssessmentData = {
   frequency: number;
   severity: number;
   riskScore: number;
+  financialImpact: string;
   date: string;
 };
 
@@ -22,6 +23,14 @@ interface RiskAssessmentProps {
   selectedRisk: string | null;
   selectedStep: string | null;
 }
+
+const getFinancialImpact = (riskScore: number): string => {
+  if (riskScore > 400) return ">20M Dolar";
+  if (riskScore > 200) return "20 - 10M Dolar";
+  if (riskScore > 70) return "10 - 5M Dolar";
+  if (riskScore > 20) return "5 - 1M Dolar";
+  return "1 - 0M Dolar";
+};
 
 export const RiskAssessment = ({ 
   onCalculate, 
@@ -50,6 +59,7 @@ export const RiskAssessment = ({
     }
 
     const riskScore = p * f * s;
+    const financialImpact = getFinancialImpact(riskScore);
     onCalculate(riskScore);
 
     const newAssessment: RiskAssessmentData = {
@@ -60,6 +70,7 @@ export const RiskAssessment = ({
       frequency: f,
       severity: s,
       riskScore,
+      financialImpact,
       date: new Date().toISOString(),
     };
 
@@ -153,6 +164,9 @@ export const RiskAssessment = ({
                   </p>
                   <p className="text-sm text-gray-600">
                     Risk Skoru: {assessment.riskScore.toFixed(2)}
+                  </p>
+                  <p className="text-sm text-gray-600">
+                    Finansal Etki: {assessment.financialImpact}
                   </p>
                 </div>
                 <Button
