@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { DepartmentSelector } from "@/components/DepartmentSelector";
+import { RiskSelector } from "@/components/RiskSelector";
 import { ValueChain } from "@/components/ValueChain";
 import { RiskAssessment } from "@/components/RiskAssessment";
 
 const Index = () => {
   const [selectedDepartment, setSelectedDepartment] = useState<string | null>(null);
+  const [selectedRisk, setSelectedRisk] = useState<string | null>(null);
   const [selectedStep, setSelectedStep] = useState<string | null>(null);
   const [riskScore, setRiskScore] = useState<number | null>(null);
 
@@ -23,14 +25,30 @@ const Index = () => {
             onSelect={setSelectedDepartment}
           />
           
-          <RiskAssessment onCalculate={handleRiskCalculation} />
+          {selectedDepartment && (
+            <RiskSelector
+              selectedRisk={selectedRisk}
+              onSelect={setSelectedRisk}
+            />
+          )}
+          
+          {selectedRisk && selectedDepartment && (
+            <RiskAssessment 
+              onCalculate={handleRiskCalculation}
+              selectedDepartment={selectedDepartment}
+              selectedRisk={selectedRisk}
+              selectedStep={selectedStep}
+            />
+          )}
         </div>
         
         <div>
-          <ValueChain
-            selectedStep={selectedStep}
-            onSelect={setSelectedStep}
-          />
+          {selectedDepartment && selectedRisk && (
+            <ValueChain
+              selectedStep={selectedStep}
+              onSelect={setSelectedStep}
+            />
+          )}
           
           {riskScore !== null && (
             <div className="mt-8 p-4 bg-gray-50 rounded-lg">
