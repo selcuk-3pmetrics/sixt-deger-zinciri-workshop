@@ -1,4 +1,4 @@
-import { Circle, Triangle, Hexagon, Square, Star, Leaf, RectangleHorizontal } from "lucide-react";
+import { Circle, Triangle, Hexagon, Square, Star, Leaf, RectangleHorizontal, Parallelogram } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export type Department = {
@@ -9,13 +9,18 @@ export type Department = {
 };
 
 const departments: Department[] = [
-  { id: "it", name: "IT", icon: Circle, color: "text-blue-500" },
-  { id: "finance", name: "Finans", icon: Triangle, color: "text-green-500" },
-  { id: "management", name: "Üst Yönetim", icon: Hexagon, color: "text-gray-500" },
-  { id: "hr", name: "İnsan Kaynakları", icon: RectangleHorizontal, color: "text-yellow-500" },
-  { id: "risk", name: "Risk Yönetimi", icon: Star, color: "text-red-500" },
-  { id: "sustainability", name: "Sürdürülebilirlik", icon: Leaf, color: "text-orange-500" },
-  { id: "rnd", name: "Ar-Ge", icon: Square, color: "text-purple-500" }
+  { id: "management", name: "Yönetim-Strateji", icon: Hexagon, color: "text-[#9b87f5]" },
+  { id: "audit", name: "İç Denetim", icon: Triangle, color: "text-[#7E69AB]" },
+  { id: "factory", name: "Fabrika Yönetimi", icon: Square, color: "text-[#F97316]" },
+  { id: "quality", name: "Kalite", icon: Circle, color: "text-[#0EA5E9]" },
+  { id: "sales", name: "Satış", icon: Star, color: "text-[#D946EF]" },
+  { id: "purchasing", name: "Satın alma-1", icon: Parallelogram, color: "text-[#8B5CF6]" },
+  { id: "logistics", name: "Lojistik", icon: RectangleHorizontal, color: "text-[#1EAEDB]" },
+  { id: "finance", name: "Finans", icon: Triangle, color: "text-[#221F26]" },
+  { id: "hr", name: "İK", icon: Square, color: "text-[#F2FCE2]" },
+  { id: "it", name: "BT", icon: Circle, color: "text-[#403E43]" },
+  { id: "communications", name: "Kurumsal iletişim", icon: Star, color: "text-[#FEC6A1]" },
+  { id: "environment", name: "Çevre yönetimi", icon: Leaf, color: "text-[#FDE1D3]" }
 ];
 
 interface DepartmentSelectorProps {
@@ -30,7 +35,7 @@ export const DepartmentSelector = ({
   return (
     <div className="p-4">
       <h2 className="text-xl font-semibold mb-4">Departman Seçimi</h2>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {departments.map((dept) => {
           const Icon = dept.icon;
           return (
@@ -38,12 +43,12 @@ export const DepartmentSelector = ({
               key={dept.id}
               onClick={() => onSelect(dept.id)}
               className={cn(
-                "department-shape flex flex-col items-center p-4 rounded-lg",
+                "department-shape flex flex-col items-center p-4 rounded-lg transition-all duration-200",
                 selectedDepartment === dept.id ? "bg-gray-100" : "hover:bg-gray-50"
               )}
             >
               <Icon className={cn("w-8 h-8 mb-2", dept.color)} />
-              <span className="text-sm font-medium">{dept.name}</span>
+              <span className="text-sm font-medium text-center">{dept.name}</span>
             </button>
           );
         })}
