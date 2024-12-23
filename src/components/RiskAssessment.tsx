@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import * as XLSX from 'xlsx';
@@ -63,6 +63,19 @@ export const RiskAssessment = ({
   const [severity, setSeverity] = useState("");
   const [savedAssessments, setSavedAssessments] = useState<RiskAssessmentData[]>([]);
 
+  // Load saved assessments from localStorage on component mount
+  useEffect(() => {
+    const savedData = localStorage.getItem('riskAssessments');
+    if (savedData) {
+      setSavedAssessments(JSON.parse(savedData));
+    }
+  }, []);
+
+  // Save to localStorage whenever savedAssessments changes
+  useEffect(() => {
+    localStorage.setItem('riskAssessments', JSON.stringify(savedAssessments));
+  }, [savedAssessments]);
+
   const handleCalculate = () => {
     const p = Number(probability);
     const f = Number(frequency);
@@ -94,13 +107,12 @@ export const RiskAssessment = ({
       date: new Date().toISOString(),
     };
 
-    setSavedAssessments([...savedAssessments, newAssessment]);
+    setSavedAssessments(prev => [...prev, newAssessment]);
     toast.success("Risk değerlendirmesi kaydedildi");
   };
 
   const handleDelete = (index: number) => {
-    const newAssessments = savedAssessments.filter((_, i) => i !== index);
-    setSavedAssessments(newAssessments);
+    setSavedAssessments(prev => prev.filter((_, i) => i !== index));
     toast.success("Risk değerlendirmesi silindi");
   };
 
