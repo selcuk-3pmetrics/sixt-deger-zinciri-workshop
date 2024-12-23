@@ -2,9 +2,24 @@ import { cn } from "@/lib/utils";
 
 export const valueChainSteps = [
   {
+    id: "raw-materials",
+    name: "Hammadde Temini",
+    description: "Hammadde tedarik ve yönetim süreçleri",
+  },
+  {
     id: "production",
-    name: "Üretim",
-    description: "Mal ve hizmetlerin üretildiği süreçler",
+    name: "Üretim Süreci",
+    description: "Mal ve hizmetlerin üretim süreçleri",
+  },
+  {
+    id: "quality",
+    name: "Kalite Kontrol",
+    description: "Kalite kontrol ve güvence süreçleri",
+  },
+  {
+    id: "storage",
+    name: "Depolama",
+    description: "Ürün ve malzeme depolama süreçleri",
   },
   {
     id: "logistics",
@@ -12,24 +27,24 @@ export const valueChainSteps = [
     description: "Tedarik zinciri ve dağıtım süreçleri",
   },
   {
-    id: "marketing",
-    name: "Pazarlama ve Satış",
+    id: "sales-marketing",
+    name: "Satış ve Pazarlama",
     description: "Ürünlerin müşteriyle buluşturulması",
   },
   {
-    id: "hr",
-    name: "İnsan Kaynakları",
-    description: "Çalışan yönetimi ve süreçleri",
+    id: "r-and-d",
+    name: "Ar-Ge",
+    description: "Araştırma ve geliştirme faaliyetleri",
   },
   {
-    id: "technology",
-    name: "Teknoloji",
-    description: "Teknolojik altyapı ve inovasyon adımları",
+    id: "customer-relations",
+    name: "Müşteri İlişkileri",
+    description: "Müşteri ilişkileri yönetimi",
   },
   {
-    id: "supply",
-    name: "Tedarik",
-    description: "Malzeme ve kaynak temini süreçleri",
+    id: "finance-legal",
+    name: "Finans ve Hukuk",
+    description: "Finansal ve hukuki süreçler",
   },
 ];
 
