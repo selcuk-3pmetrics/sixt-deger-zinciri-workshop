@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { DepartmentSelector } from "@/components/DepartmentSelector";
 import { RiskSelector } from "@/components/RiskSelector";
 import { ValueChain } from "@/components/ValueChain";
 import { RiskAssessment } from "@/components/RiskAssessment";
+import { Button } from "@/components/ui/button";
+import { BarChart3 } from "lucide-react";
 
 const Index = () => {
   const [selectedDepartment, setSelectedDepartment] = useState<string | null>(null);
@@ -26,7 +29,15 @@ const Index = () => {
 
   return (
     <div className="container mx-auto py-8 px-4 max-w-4xl">
-      <h1 className="text-3xl font-bold text-center mb-8 text-brand-teal">Risk Değerlendirme Sistemi</h1>
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-3xl font-bold text-brand-teal">Risk Değerlendirme Sistemi</h1>
+        <Link to="/visualization">
+          <Button variant="outline" className="gap-2">
+            <BarChart3 className="h-4 w-4" />
+            Grafikleri Görüntüle
+          </Button>
+        </Link>
+      </div>
       
       <div className="space-y-8">
         <DepartmentSelector
