@@ -32,24 +32,37 @@ const getFinancialImpact = (riskScore: number): string => {
   return "1 - 0M Dolar";
 };
 
-const getProbabilityDescription = (value: number): string => {
-  if (value === 10) return "Beklenir, kesin";
-  if (value === 8) return "Yüksek/oldukça mümkün";
-  if (value === 6) return "Olası";
-  if (value === 3) return "Mümkün, fakat düşük";
-  if (value === 1) return "Beklenmez fakat mümkün";
-  if (value === 0.1) return "Beklenmez";
-  return "";
+const getDepartmentName = (departmentId: string): string => {
+  const departments = {
+    management: "Yönetim-Strateji",
+    audit: "İç Denetim",
+    factory: "Fabrika Yönetimi",
+    quality: "Kalite",
+    sales: "Satış",
+    purchasing: "Satın Alma",
+    logistics: "Lojistik",
+    finance: "Finans",
+    hr: "İnsan Kaynakları",
+    it: "Bilgi Teknolojileri",
+    communications: "Kurumsal İletişim",
+    environment: "Çevre Yönetimi"
+  };
+  return departments[departmentId as keyof typeof departments] || departmentId;
 };
 
-const getFrequencyDescription = (value: number): string => {
-  if (value === 10) return "Hemen hemen sürekli (Hergün)";
-  if (value === 8) return "Sık (Ayda bir veya birkaç defa)";
-  if (value === 6) return "Ara sıra (6 ayda 1)";
-  if (value === 3) return "Sık değil (Yılda birkaç defa)";
-  if (value === 1) return "Seyrek (3 yılda 1)";
-  if (value === 0.1) return "Çok seyrek (>3 yıl)";
-  return "";
+const getValueChainStepName = (stepId: string): string => {
+  const steps = {
+    "raw-materials": "Hammadde Temini",
+    "production": "Üretim Süreci",
+    "quality": "Kalite Kontrol",
+    "storage": "Depolama",
+    "logistics": "Lojistik",
+    "sales-marketing": "Satış ve Pazarlama",
+    "r-and-d": "Ar-Ge",
+    "customer-relations": "Müşteri İlişkileri",
+    "finance-legal": "Finans ve Hukuk"
+  };
+  return steps[stepId as keyof typeof steps] || stepId;
 };
 
 export const RiskAssessment = ({ 
@@ -122,7 +135,13 @@ export const RiskAssessment = ({
       return;
     }
 
-    const ws = XLSX.utils.json_to_sheet(savedAssessments);
+    const exportData = savedAssessments.map(assessment => ({
+      ...assessment,
+      department: getDepartmentName(assessment.department),
+      valueChainStep: getValueChainStepName(assessment.valueChainStep)
+    }));
+
+    const ws = XLSX.utils.json_to_sheet(exportData);
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, "Risk Değerlendirmeleri");
     XLSX.writeFile(wb, "risk_degerlendirmeleri.xlsx");
