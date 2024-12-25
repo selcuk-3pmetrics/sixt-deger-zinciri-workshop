@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import * as XLSX from 'xlsx';
-import { ValueChain } from "./ValueChain";
+import { ValueChain, valueChainSteps } from "./ValueChain";
 import { DepartmentSelector } from "./DepartmentSelector";
 import { MaterialitySelector } from "./MaterialitySelector";
 
@@ -17,6 +17,29 @@ export type MaterialityData = {
 interface MaterialityAnalysisProps {
   selectedDepartment: string | null;
 }
+
+const getDepartmentName = (departmentId: string): string => {
+  const departments = {
+    management: "Yönetim-Strateji",
+    audit: "İç Denetim",
+    factory: "Fabrika Yönetimi",
+    quality: "Kalite",
+    sales: "Satış",
+    purchasing: "Satın Alma",
+    logistics: "Lojistik",
+    finance: "Finans",
+    hr: "İnsan Kaynakları",
+    it: "Bilgi Teknolojileri",
+    communications: "Kurumsal İletişim",
+    environment: "Çevre Yönetimi"
+  };
+  return departments[departmentId as keyof typeof departments] || departmentId;
+};
+
+const getValueChainStepName = (stepId: string): string => {
+  const step = valueChainSteps.find(s => s.id === stepId);
+  return step ? step.name : stepId;
+};
 
 export const MaterialityAnalysis = ({ selectedDepartment }: MaterialityAnalysisProps) => {
   const [selectedMainCategory, setSelectedMainCategory] = useState<string | null>(null);
@@ -107,10 +130,10 @@ export const MaterialityAnalysis = ({ selectedDepartment }: MaterialityAnalysisP
                 <div>
                   <p className="font-medium">{assessment.materialityItem}</p>
                   <p className="text-sm text-gray-600">
-                    {assessment.department} - {assessment.mainCategory}
+                    {getDepartmentName(assessment.department)} - {assessment.mainCategory}
                   </p>
                   <p className="text-sm text-gray-600">
-                    Değer Zinciri: {assessment.valueChainStep}
+                    Değer Zinciri: {getValueChainStepName(assessment.valueChainStep)}
                   </p>
                 </div>
                 <Button
