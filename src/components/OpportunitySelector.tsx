@@ -1,4 +1,5 @@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 
 type OpportunityItem = {
@@ -130,6 +131,15 @@ export const OpportunitySelector = ({
             </Select>
           </div>
         )}
+
+        <div>
+          <label className="text-sm font-medium mb-2 block">Özel Fırsat Maddesi</label>
+          <Input
+            placeholder="Kendi fırsat maddenizi yazınız..."
+            className="w-full"
+            onChange={(e) => onOpportunityItemSelect(e.target.value)}
+          />
+        </div>
       </div>
     </div>
   );
