@@ -82,17 +82,13 @@ const Index = () => {
       />
 
       {selectedDepartment && (
-        <Tabs defaultValue="opportunity" className="mt-8">
+        <Tabs defaultValue="risk" className="mt-8">
           <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger value="opportunity">Fırsat Analizi</TabsTrigger>
             <TabsTrigger value="risk">Risk Değerlendirmesi</TabsTrigger>
+            <TabsTrigger value="opportunity">Fırsat Analizi</TabsTrigger>
             <TabsTrigger value="materiality">Önemlilik Analizi</TabsTrigger>
           </TabsList>
           
-          <TabsContent value="opportunity">
-            <OpportunityAnalysis selectedDepartment={selectedDepartment} />
-          </TabsContent>
-
           <TabsContent value="risk" className="space-y-8">
             <RiskSelector
               selectedRisk={selectedRisk}
@@ -137,6 +133,10 @@ const Index = () => {
                 </div>
               </div>
             )}
+          </TabsContent>
+
+          <TabsContent value="opportunity">
+            <OpportunityAnalysis selectedDepartment={selectedDepartment} />
           </TabsContent>
           
           <TabsContent value="materiality">
