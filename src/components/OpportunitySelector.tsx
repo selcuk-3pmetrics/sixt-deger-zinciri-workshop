@@ -27,7 +27,8 @@ const opportunityItems: OpportunityItem[] = [
       "Ürün Ömrünü Uzatmak",
       "Yenilebilir Enerji Kullanımı",
       "Yeşil Finansmanlardan Yararlanmak",
-      "Yeşil Ürün Sertifikaları"
+      "Yeşil Ürün Sertifikaları",
+      "Diğer"
     ]
   },
   {
@@ -44,7 +45,8 @@ const opportunityItems: OpportunityItem[] = [
       "İş Sağlığı ve Güvenliğinde İnovasyon",
       "Mentorluk ve Koçluk",
       "STK'larla İşbirlikleri",
-      "Teşvik ve Ödül Sistemleri"
+      "Teşvik ve Ödül Sistemleri",
+      "Diğer"
     ]
   },
   {
@@ -71,7 +73,8 @@ const opportunityItems: OpportunityItem[] = [
       "Yatırımcı Güveni Oluşturma",
       "Yeşil Tedarik Zinciri Oluşturma",
       "Yüksek Kalite Standartları ve Sertifikaları",
-      "Zorluklara Karşı Güçlü Şirket"
+      "Zorluklara Karşı Güçlü Şirket",
+      "Diğer"
     ]
   }
 ];
@@ -81,6 +84,8 @@ interface OpportunitySelectorProps {
   selectedOpportunityItem: string | null;
   onMainCategorySelect: (category: string) => void;
   onOpportunityItemSelect: (item: string) => void;
+  customOpportunityItem: string;
+  onCustomOpportunityItemChange: (value: string) => void;
 }
 
 export const OpportunitySelector = ({
@@ -88,6 +93,8 @@ export const OpportunitySelector = ({
   selectedOpportunityItem,
   onMainCategorySelect,
   onOpportunityItemSelect,
+  customOpportunityItem,
+  onCustomOpportunityItemChange,
 }: OpportunitySelectorProps) => {
   const filteredItems = selectedMainCategory
     ? opportunityItems.find(cat => cat.category === selectedMainCategory)?.items || []
@@ -132,14 +139,17 @@ export const OpportunitySelector = ({
           </div>
         )}
 
-        <div>
-          <label className="text-sm font-medium mb-2 block">Özel Fırsat Maddesi</label>
-          <Input
-            placeholder="Kendi fırsat maddenizi yazınız..."
-            className="w-full"
-            onChange={(e) => onOpportunityItemSelect(e.target.value)}
-          />
-        </div>
+        {selectedOpportunityItem === "Diğer" && (
+          <div>
+            <label className="text-sm font-medium mb-2 block">Özel Fırsat Maddesi</label>
+            <Input
+              placeholder="Kendi fırsat maddenizi yazınız..."
+              className="w-full"
+              value={customOpportunityItem}
+              onChange={(e) => onCustomOpportunityItemChange(e.target.value)}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
