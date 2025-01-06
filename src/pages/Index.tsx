@@ -4,6 +4,7 @@ import { RiskSelector } from "@/components/RiskSelector";
 import { ValueChain } from "@/components/ValueChain";
 import { RiskAssessment } from "@/components/RiskAssessment";
 import { MaterialityAnalysis } from "@/components/MaterialityAnalysis";
+import { OpportunityAnalysis } from "@/components/OpportunityAnalysis";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Index = () => {
@@ -37,9 +38,10 @@ const Index = () => {
 
       {selectedDepartment && (
         <Tabs defaultValue="risk" className="mt-8">
-          <TabsList className="grid w-full grid-cols-2">
+          <TabsList className="grid w-full grid-cols-3">
             <TabsTrigger value="risk">Risk Değerlendirmesi</TabsTrigger>
             <TabsTrigger value="materiality">Önemlilik Analizi</TabsTrigger>
+            <TabsTrigger value="opportunity">Fırsat Analizi</TabsTrigger>
           </TabsList>
           
           <TabsContent value="risk" className="space-y-8">
@@ -90,6 +92,10 @@ const Index = () => {
           
           <TabsContent value="materiality">
             <MaterialityAnalysis selectedDepartment={selectedDepartment} />
+          </TabsContent>
+
+          <TabsContent value="opportunity">
+            <OpportunityAnalysis selectedDepartment={selectedDepartment} />
           </TabsContent>
         </Tabs>
       )}
