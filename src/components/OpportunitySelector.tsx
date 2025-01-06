@@ -28,7 +28,7 @@ const opportunityItems: OpportunityItem[] = [
       "Yenilebilir Enerji Kullanımı",
       "Yeşil Finansmanlardan Yararlanmak",
       "Yeşil Ürün Sertifikaları",
-      "Lütfen Belirtiniz..."
+      "Diğer"
     ]
   },
   {
@@ -46,7 +46,7 @@ const opportunityItems: OpportunityItem[] = [
       "Mentorluk ve Koçluk",
       "STK'larla İşbirlikleri",
       "Teşvik ve Ödül Sistemleri",
-      "Lütfen Belirtiniz..."
+      "Diğer"
     ]
   },
   {
@@ -74,7 +74,7 @@ const opportunityItems: OpportunityItem[] = [
       "Yeşil Tedarik Zinciri Oluşturma",
       "Yüksek Kalite Standartları ve Sertifikaları",
       "Zorluklara Karşı Güçlü Şirket",
-      "Lütfen Belirtiniz..."
+      "Diğer"
     ]
   }
 ];
