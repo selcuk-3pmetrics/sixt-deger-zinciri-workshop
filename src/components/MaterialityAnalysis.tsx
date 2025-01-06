@@ -4,12 +4,20 @@ import { toast } from "sonner";
 import { ValueChain, valueChainSteps } from "./ValueChain";
 import { DepartmentSelector } from "./DepartmentSelector";
 import { MaterialitySelector } from "./MaterialitySelector";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export type MaterialityData = {
   department: string;
   mainCategory: string;
   materialityItem: string;
   valueChainStep: string;
+  materialityDegree: number;
   date: string;
 };
 
@@ -44,6 +52,7 @@ export const MaterialityAnalysis = ({ selectedDepartment }: MaterialityAnalysisP
   const [selectedMainCategory, setSelectedMainCategory] = useState<string | null>(null);
   const [selectedMaterialityItem, setSelectedMaterialityItem] = useState<string | null>(null);
   const [selectedStep, setSelectedStep] = useState<string | null>(null);
+  const [materialityDegree, setMaterialityDegree] = useState<number | null>(null);
   const [savedAssessments, setSavedAssessments] = useState<MaterialityData[]>([]);
 
   useState(() => {
@@ -54,7 +63,7 @@ export const MaterialityAnalysis = ({ selectedDepartment }: MaterialityAnalysisP
   });
 
   const handleSave = () => {
-    if (!selectedDepartment || !selectedMainCategory || !selectedMaterialityItem || !selectedStep) {
+    if (!selectedDepartment || !selectedMainCategory || !selectedMaterialityItem || !selectedStep || !materialityDegree) {
       toast.error("Lütfen tüm alanları doldurun");
       return;
     }
@@ -64,6 +73,7 @@ export const MaterialityAnalysis = ({ selectedDepartment }: MaterialityAnalysisP
       mainCategory: selectedMainCategory,
       materialityItem: selectedMaterialityItem,
       valueChainStep: selectedStep,
+      materialityDegree: materialityDegree,
       date: new Date().toISOString(),
     };
 
@@ -91,10 +101,31 @@ export const MaterialityAnalysis = ({ selectedDepartment }: MaterialityAnalysisP
       />
 
       {selectedMainCategory && selectedMaterialityItem && (
-        <ValueChain
-          selectedStep={selectedStep}
-          onSelect={setSelectedStep}
-        />
+        <>
+          <ValueChain
+            selectedStep={selectedStep}
+            onSelect={setSelectedStep}
+          />
+
+          <div className="space-y-2">
+            <label className="text-sm font-medium">Önemlilik Derecesi (1-10)</label>
+            <Select
+              value={materialityDegree?.toString()}
+              onValueChange={(value) => setMaterialityDegree(Number(value))}
+            >
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Önemlilik derecesi seçin" />
+              </SelectTrigger>
+              <SelectContent>
+                {Array.from({ length: 10 }, (_, i) => i + 1).map((num) => (
+                  <SelectItem key={num} value={num.toString()}>
+                    {num}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        </>
       )}
 
       <div className="flex gap-2">
@@ -116,6 +147,9 @@ export const MaterialityAnalysis = ({ selectedDepartment }: MaterialityAnalysisP
                   </p>
                   <p className="text-sm text-gray-600">
                     Değer Zinciri: {getValueChainStepName(assessment.valueChainStep)}
+                  </p>
+                  <p className="text-sm text-gray-600">
+                    Önemlilik Derecesi: {assessment.materialityDegree}
                   </p>
                 </div>
                 <Button
