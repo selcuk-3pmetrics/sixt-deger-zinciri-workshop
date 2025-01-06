@@ -3,7 +3,8 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import * as XLSX from 'xlsx';
 import { RiskInputs } from "./RiskInputs";
-import { SavedAssessments } from "./SavedAssessments";
+import { SavedRiskAssessments } from "./SavedRiskAssessments";
+import { getDepartmentName, getValueChainStepName } from "@/utils/translations";
 
 export type RiskAssessmentData = {
   department: string;
@@ -52,39 +53,6 @@ const getFrequencyDescription = (value: number): string => {
   return "";
 };
 
-const getDepartmentName = (departmentId: string): string => {
-  const departments = {
-    management: "Yönetim-Strateji",
-    audit: "İç Denetim",
-    factory: "Fabrika Yönetimi",
-    quality: "Kalite",
-    sales: "Satış",
-    purchasing: "Satın Alma",
-    logistics: "Lojistik",
-    finance: "Finans",
-    hr: "İnsan Kaynakları",
-    it: "Bilgi Teknolojileri",
-    communications: "Kurumsal İletişim",
-    environment: "Çevre Yönetimi"
-  };
-  return departments[departmentId as keyof typeof departments] || departmentId;
-};
-
-const getValueChainStepName = (stepId: string): string => {
-  const steps = {
-    "raw-materials": "Hammadde Temini",
-    "production": "Üretim Süreci",
-    "quality": "Kalite Kontrol",
-    "storage": "Depolama",
-    "logistics": "Lojistik",
-    "sales-marketing": "Satış ve Pazarlama",
-    "r-and-d": "Ar-Ge",
-    "customer-relations": "Müşteri İlişkileri",
-    "finance-legal": "Finans ve Hukuk"
-  };
-  return steps[stepId as keyof typeof steps] || stepId;
-};
-
 export const RiskAssessment = ({ 
   onCalculate, 
   selectedDepartment,
@@ -96,7 +64,6 @@ export const RiskAssessment = ({
   const [severity, setSeverity] = useState("");
   const [savedAssessments, setSavedAssessments] = useState<RiskAssessmentData[]>([]);
 
-  // Load saved assessments from localStorage on component mount
   useEffect(() => {
     const savedData = localStorage.getItem('riskAssessments');
     if (savedData) {
@@ -104,7 +71,6 @@ export const RiskAssessment = ({
     }
   }, []);
 
-  // Save to localStorage whenever savedAssessments changes
   useEffect(() => {
     localStorage.setItem('riskAssessments', JSON.stringify(savedAssessments));
   }, [savedAssessments]);
@@ -156,9 +122,15 @@ export const RiskAssessment = ({
     }
 
     const exportData = savedAssessments.map(assessment => ({
-      ...assessment,
       department: getDepartmentName(assessment.department),
-      valueChainStep: getValueChainStepName(assessment.valueChainStep)
+      risk: assessment.risk,
+      valueChainStep: getValueChainStepName(assessment.valueChainStep),
+      probability: assessment.probability,
+      frequency: assessment.frequency,
+      severity: assessment.severity,
+      riskScore: assessment.riskScore,
+      financialImpact: assessment.financialImpact,
+      date: assessment.date
     }));
 
     const ws = XLSX.utils.json_to_sheet(exportData);
@@ -192,7 +164,7 @@ export const RiskAssessment = ({
         </Button>
       </div>
 
-      <SavedAssessments
+      <SavedRiskAssessments
         assessments={savedAssessments}
         onDelete={handleDelete}
       />
