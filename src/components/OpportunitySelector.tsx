@@ -13,7 +13,6 @@ const opportunityItems: OpportunityItem[] = [
     items: [
       "Atık İyileşltirme Projeleri",
       "Atıkların Yeniden Kullanılması",
-      "Diğer",
       "Doğa Dostu Şirket Olma",
       "Doğal Koruma Alanları Oluşturma",
       "Düşük Karbonlu Üretim Teknolojileri",
@@ -35,7 +34,6 @@ const opportunityItems: OpportunityItem[] = [
     category: "Sosyal",
     items: [
       "Atölye Çalışmaları",
-      "Diğer",
       "Eğitim ve Gelişim Programları",
       "Eğitimler ve Burs İmkanları",
       "Esnek Çalışma Modelleri",
@@ -53,7 +51,6 @@ const opportunityItems: OpportunityItem[] = [
     category: "Yönetişim",
     items: [
       "Dijitalleşmiş İş Süreçleri",
-      "Diğer",
       "Güçlü İç Kontrol Sistemleri",
       "İnovasyon Kültürü",
       "İtibar ve Müşteri Güveni",
@@ -96,8 +93,6 @@ export const OpportunitySelector = ({
     ? opportunityItems.find(cat => cat.category === selectedMainCategory)?.items || []
     : [];
 
-  const showCustomInput = selectedOpportunityItem === "Diğer";
-
   return (
     <div className="p-4 space-y-4">
       <h2 className="text-xl font-semibold mb-4">Fırsat Analizi</h2>
@@ -137,16 +132,14 @@ export const OpportunitySelector = ({
           </div>
         )}
 
-        {showCustomInput && (
-          <div>
-            <label className="text-sm font-medium mb-2 block">Özel Fırsat Maddesi</label>
-            <Input
-              placeholder="Kendi fırsat maddenizi yazınız..."
-              className="w-full"
-              onChange={(e) => onOpportunityItemSelect(e.target.value)}
-            />
-          </div>
-        )}
+        <div>
+          <label className="text-sm font-medium mb-2 block">Özel Fırsat Maddesi</label>
+          <Input
+            placeholder="Kendi fırsat maddenizi yazınız..."
+            className="w-full"
+            onChange={(e) => onOpportunityItemSelect(e.target.value)}
+          />
+        </div>
       </div>
     </div>
   );
