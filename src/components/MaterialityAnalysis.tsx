@@ -69,10 +69,10 @@ export const MaterialityAnalysis = ({ selectedDepartment }: MaterialityAnalysisP
     }
 
     const newAssessment: MaterialityData = {
-      department: selectedDepartment,
+      department: getDepartmentName(selectedDepartment),
       mainCategory: selectedMainCategory,
       materialityItem: selectedMaterialityItem,
-      valueChainStep: selectedStep,
+      valueChainStep: getValueChainStepName(selectedStep),
       materialityDegree: materialityDegree,
       date: new Date().toISOString(),
     };
@@ -143,10 +143,10 @@ export const MaterialityAnalysis = ({ selectedDepartment }: MaterialityAnalysisP
                 <div>
                   <p className="font-medium">{assessment.materialityItem}</p>
                   <p className="text-sm text-gray-600">
-                    {getDepartmentName(assessment.department)} - {assessment.mainCategory}
+                    {assessment.department} - {assessment.mainCategory}
                   </p>
                   <p className="text-sm text-gray-600">
-                    Değer Zinciri: {getValueChainStepName(assessment.valueChainStep)}
+                    Değer Zinciri: {assessment.valueChainStep}
                   </p>
                   <p className="text-sm text-gray-600">
                     Önemlilik Derecesi: {assessment.materialityDegree}
