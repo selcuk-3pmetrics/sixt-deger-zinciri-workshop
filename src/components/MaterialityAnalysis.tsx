@@ -77,8 +77,9 @@ export const MaterialityAnalysis = ({ selectedDepartment }: MaterialityAnalysisP
       date: new Date().toISOString(),
     };
 
-    setSavedAssessments(prev => [...prev, newAssessment]);
-    localStorage.setItem('materialityAssessments', JSON.stringify([...savedAssessments, newAssessment]));
+    const updatedAssessments = [...savedAssessments, newAssessment];
+    setSavedAssessments(updatedAssessments);
+    localStorage.setItem('materialityAssessments', JSON.stringify(updatedAssessments));
     toast.success("Önemlilik analizi kaydedildi");
   };
 
