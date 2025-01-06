@@ -6,6 +6,9 @@ import { RiskAssessment } from "@/components/RiskAssessment";
 import { MaterialityAnalysis } from "@/components/MaterialityAnalysis";
 import { OpportunityAnalysis } from "@/components/OpportunityAnalysis";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
+import * as XLSX from 'xlsx';
+import { toast } from "sonner";
 
 const Index = () => {
   const [selectedDepartment, setSelectedDepartment] = useState<string | null>(null);
@@ -19,6 +22,43 @@ const Index = () => {
     setFinancialImpact(impact);
   };
 
+  const handleExportAll = () => {
+    // Get data from localStorage
+    const riskData = JSON.parse(localStorage.getItem('riskAssessments') || '[]');
+    const materialityData = JSON.parse(localStorage.getItem('materialityAssessments') || '[]');
+    const opportunityData = JSON.parse(localStorage.getItem('opportunityAssessments') || '[]');
+
+    if (riskData.length === 0 && materialityData.length === 0 && opportunityData.length === 0) {
+      toast.error("Dışa aktarılacak değerlendirme bulunamadı");
+      return;
+    }
+
+    // Create workbook with multiple sheets
+    const wb = XLSX.utils.book_new();
+
+    // Add Risk Assessment sheet if there's data
+    if (riskData.length > 0) {
+      const ws1 = XLSX.utils.json_to_sheet(riskData);
+      XLSX.utils.book_append_sheet(wb, ws1, "Risk Değerlendirmeleri");
+    }
+
+    // Add Materiality Analysis sheet if there's data
+    if (materialityData.length > 0) {
+      const ws2 = XLSX.utils.json_to_sheet(materialityData);
+      XLSX.utils.book_append_sheet(wb, ws2, "Önemlilik Analizleri");
+    }
+
+    // Add Opportunity Analysis sheet if there's data
+    if (opportunityData.length > 0) {
+      const ws3 = XLSX.utils.json_to_sheet(opportunityData);
+      XLSX.utils.book_append_sheet(wb, ws3, "Fırsat Analizleri");
+    }
+
+    // Export the workbook
+    XLSX.writeFile(wb, "tum_degerlendirmeler.xlsx");
+    toast.success("Tüm değerlendirmeler Excel dosyası olarak indirildi");
+  };
+
   const getRiskDegree = (score: number): string => {
     if (score > 400) return "Çok Yüksek";
     if (score > 200) return "Yüksek";
@@ -29,7 +69,12 @@ const Index = () => {
 
   return (
     <div className="container mx-auto py-8 px-4 max-w-4xl">
-      <h1 className="text-3xl font-bold text-center mb-8 text-brand-teal">Değerlendirme Sistemi</h1>
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-3xl font-bold text-center text-brand-teal">Değerlendirme Sistemi</h1>
+        <Button onClick={handleExportAll} variant="outline" className="ml-auto">
+          Excel'e Aktar
+        </Button>
+      </div>
       
       <DepartmentSelector
         selectedDepartment={selectedDepartment}

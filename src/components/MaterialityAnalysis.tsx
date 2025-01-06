@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import * as XLSX from 'xlsx';
 import { ValueChain, valueChainSteps } from "./ValueChain";
 import { DepartmentSelector } from "./DepartmentSelector";
 import { MaterialitySelector } from "./MaterialitySelector";
@@ -47,7 +46,6 @@ export const MaterialityAnalysis = ({ selectedDepartment }: MaterialityAnalysisP
   const [selectedStep, setSelectedStep] = useState<string | null>(null);
   const [savedAssessments, setSavedAssessments] = useState<MaterialityData[]>([]);
 
-  // Load saved assessments from localStorage on component mount
   useState(() => {
     const savedData = localStorage.getItem('materialityAssessments');
     if (savedData) {
@@ -83,19 +81,6 @@ export const MaterialityAnalysis = ({ selectedDepartment }: MaterialityAnalysisP
     toast.success("Kayıt silindi");
   };
 
-  const handleExport = () => {
-    if (savedAssessments.length === 0) {
-      toast.error("Dışa aktarılacak değerlendirme bulunamadı");
-      return;
-    }
-
-    const ws = XLSX.utils.json_to_sheet(savedAssessments);
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "Önemlilik Analizleri");
-    XLSX.writeFile(wb, "onemlilik_analizleri.xlsx");
-    toast.success("Değerlendirmeler Excel dosyası olarak indirildi");
-  };
-
   return (
     <div className="p-4 space-y-4">
       <MaterialitySelector
@@ -115,9 +100,6 @@ export const MaterialityAnalysis = ({ selectedDepartment }: MaterialityAnalysisP
       <div className="flex gap-2">
         <Button onClick={handleSave} className="flex-1">
           Kaydet
-        </Button>
-        <Button onClick={handleExport} variant="outline">
-          Excel'e Aktar
         </Button>
       </div>
 

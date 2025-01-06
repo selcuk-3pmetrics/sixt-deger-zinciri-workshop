@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import * as XLSX from 'xlsx';
 import { ValueChain, valueChainSteps } from "./ValueChain";
 import { OpportunitySelector } from "./OpportunitySelector";
 
@@ -63,7 +62,7 @@ export const OpportunityAnalysis = ({ selectedDepartment }: OpportunityAnalysisP
     const assessmentsToSave: OpportunityData[] = [];
 
     // Save selected opportunity item if it exists and is not "Diğer"
-    if (selectedOpportunityItem && selectedOpportunityItem !== "Diğer") {
+    if (selectedOpportunityItem && selectedOpportunityItem !== "Diğer (Lütfen Belirtiniz)") {
       assessmentsToSave.push({
         department: selectedDepartment,
         mainCategory: selectedMainCategory,
@@ -104,19 +103,6 @@ export const OpportunityAnalysis = ({ selectedDepartment }: OpportunityAnalysisP
     toast.success("Kayıt silindi");
   };
 
-  const handleExport = () => {
-    if (savedAssessments.length === 0) {
-      toast.error("Dışa aktarılacak değerlendirme bulunamadı");
-      return;
-    }
-
-    const ws = XLSX.utils.json_to_sheet(savedAssessments);
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "Fırsat Analizleri");
-    XLSX.writeFile(wb, "firsat_analizleri.xlsx");
-    toast.success("Değerlendirmeler Excel dosyası olarak indirildi");
-  };
-
   return (
     <div className="p-4 space-y-4">
       <OpportunitySelector
@@ -138,9 +124,6 @@ export const OpportunityAnalysis = ({ selectedDepartment }: OpportunityAnalysisP
       <div className="flex gap-2">
         <Button onClick={handleSave} className="flex-1">
           Kaydet
-        </Button>
-        <Button onClick={handleExport} variant="outline">
-          Excel'e Aktar
         </Button>
       </div>
 
