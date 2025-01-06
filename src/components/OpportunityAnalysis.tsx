@@ -43,6 +43,7 @@ const getValueChainStepName = (stepId: string): string => {
 export const OpportunityAnalysis = ({ selectedDepartment }: OpportunityAnalysisProps) => {
   const [selectedMainCategory, setSelectedMainCategory] = useState<string | null>(null);
   const [selectedOpportunityItem, setSelectedOpportunityItem] = useState<string | null>(null);
+  const [customOpportunityItem, setCustomOpportunityItem] = useState<string>("");
   const [selectedStep, setSelectedStep] = useState<string | null>(null);
   const [savedAssessments, setSavedAssessments] = useState<OpportunityData[]>([]);
 
@@ -54,21 +55,43 @@ export const OpportunityAnalysis = ({ selectedDepartment }: OpportunityAnalysisP
   });
 
   const handleSave = () => {
-    if (!selectedDepartment || !selectedMainCategory || !selectedOpportunityItem || !selectedStep) {
+    if (!selectedDepartment || !selectedMainCategory || !selectedStep) {
       toast.error("Lütfen tüm alanları doldurun");
       return;
     }
 
-    const newAssessment: OpportunityData = {
-      department: selectedDepartment,
-      mainCategory: selectedMainCategory,
-      opportunityItem: selectedOpportunityItem,
-      valueChainStep: selectedStep,
-      date: new Date().toISOString(),
-    };
+    const assessmentsToSave: OpportunityData[] = [];
 
-    setSavedAssessments(prev => [...prev, newAssessment]);
-    localStorage.setItem('opportunityAssessments', JSON.stringify([...savedAssessments, newAssessment]));
+    // Save selected opportunity item if it exists and is not "Diğer"
+    if (selectedOpportunityItem && selectedOpportunityItem !== "Diğer") {
+      assessmentsToSave.push({
+        department: selectedDepartment,
+        mainCategory: selectedMainCategory,
+        opportunityItem: selectedOpportunityItem,
+        valueChainStep: selectedStep,
+        date: new Date().toISOString(),
+      });
+    }
+
+    // Save custom opportunity item if it exists
+    if (customOpportunityItem.trim()) {
+      assessmentsToSave.push({
+        department: selectedDepartment,
+        mainCategory: selectedMainCategory,
+        opportunityItem: customOpportunityItem.trim(),
+        valueChainStep: selectedStep,
+        date: new Date().toISOString(),
+      });
+    }
+
+    if (assessmentsToSave.length === 0) {
+      toast.error("En az bir fırsat maddesi girilmelidir");
+      return;
+    }
+
+    const newAssessments = [...savedAssessments, ...assessmentsToSave];
+    setSavedAssessments(newAssessments);
+    localStorage.setItem('opportunityAssessments', JSON.stringify(newAssessments));
     toast.success("Fırsat analizi kaydedildi");
   };
 
@@ -101,9 +124,11 @@ export const OpportunityAnalysis = ({ selectedDepartment }: OpportunityAnalysisP
         selectedOpportunityItem={selectedOpportunityItem}
         onMainCategorySelect={setSelectedMainCategory}
         onOpportunityItemSelect={setSelectedOpportunityItem}
+        customOpportunityItem={customOpportunityItem}
+        onCustomOpportunityItemChange={setCustomOpportunityItem}
       />
 
-      {selectedMainCategory && selectedOpportunityItem && (
+      {(selectedMainCategory && selectedOpportunityItem) && (
         <ValueChain
           selectedStep={selectedStep}
           onSelect={setSelectedStep}
