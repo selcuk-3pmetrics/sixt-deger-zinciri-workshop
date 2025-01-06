@@ -101,31 +101,31 @@ export const MaterialityAnalysis = ({ selectedDepartment }: MaterialityAnalysisP
       />
 
       {selectedMainCategory && selectedMaterialityItem && (
-        <>
-          <ValueChain
-            selectedStep={selectedStep}
-            onSelect={setSelectedStep}
-          />
+        <div className="space-y-2">
+          <label className="text-sm font-medium">Önemlilik Derecesi (1-10)</label>
+          <Select
+            value={materialityDegree?.toString()}
+            onValueChange={(value) => setMaterialityDegree(Number(value))}
+          >
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Önemlilik derecesi seçin" />
+            </SelectTrigger>
+            <SelectContent>
+              {Array.from({ length: 10 }, (_, i) => i + 1).map((num) => (
+                <SelectItem key={num} value={num.toString()}>
+                  {num}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+      )}
 
-          <div className="space-y-2">
-            <label className="text-sm font-medium">Önemlilik Derecesi (1-10)</label>
-            <Select
-              value={materialityDegree?.toString()}
-              onValueChange={(value) => setMaterialityDegree(Number(value))}
-            >
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="Önemlilik derecesi seçin" />
-              </SelectTrigger>
-              <SelectContent>
-                {Array.from({ length: 10 }, (_, i) => i + 1).map((num) => (
-                  <SelectItem key={num} value={num.toString()}>
-                    {num}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-        </>
+      {selectedMainCategory && selectedMaterialityItem && materialityDegree && (
+        <ValueChain
+          selectedStep={selectedStep}
+          onSelect={setSelectedStep}
+        />
       )}
 
       <div className="flex gap-2">
