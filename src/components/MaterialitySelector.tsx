@@ -13,8 +13,6 @@ const materialityItems: MaterialityItem[] = [
       "İklim Değişikliği",
       "Döngüsel Ekonomi ve Kaynak Verimliliği",
       "Emisyon Yönetimi",
-      "Enerji Verimliliği ve Yönetimi",
-      "Hava Kirliliği",
       "Atık yönetimi",
       "Su Yönetimi",
       "Biyoçeşitlilik"
@@ -27,7 +25,6 @@ const materialityItems: MaterialityItem[] = [
       "Yetenek Gelişimi",
       "Çeşitliliğin, Cinsiyet ve Fırsat Eşitliğinin Sağlanması",
       "İnsan Hakları",
-      "Çalışan Refahı",
       "İş Sağlığı ve Güvenliği",
       "Kurumsal Sosyal Sorumluluk",
       "Paydaşlarla Diyalog"
