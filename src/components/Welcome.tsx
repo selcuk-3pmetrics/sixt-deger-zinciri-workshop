@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -19,13 +20,13 @@ const Welcome = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#ea384c]/20 to-black/5 flex flex-col items-center justify-between p-4">
+    <div className="min-h-screen bg-gradient-to-b from-[#005CB9]/20 to-black/5 flex flex-col items-center justify-between p-4">
       <div className="max-w-4xl w-full flex-grow flex flex-col items-center justify-center space-y-8">
         <div className="flex flex-col items-center">
-          <img src="/lovable-uploads/0177ed63-884d-4b03-b8aa-682617497ef7.png" alt="Erciyas Logo" className="h-24" />
+          <img src="/lovable-uploads/75ae9855-42f3-4386-8d22-71a11a351a81.png" alt="Borlease Logo" className="h-24" />
         </div>
         
-        <h1 className="text-4xl font-bold text-center text-[#ea384c] mb-6">
+        <h1 className="text-4xl font-bold text-center text-[#005CB9] mb-6">
           Değer Zinciri Çalışmasına Hoşgeldiniz
         </h1>
         
@@ -50,7 +51,7 @@ const Welcome = () => {
                 className="w-full"
               />
             </div>
-            <Button type="submit" className="w-full bg-[#ea384c] hover:bg-[#ea384c]/90">
+            <Button type="submit" className="w-full bg-[#005CB9] hover:bg-[#005CB9]/90">
               Giriş Yap
             </Button>
           </form>
