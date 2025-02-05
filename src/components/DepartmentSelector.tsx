@@ -1,5 +1,5 @@
 
-import { Circle, Triangle, Hexagon, Square, Star, Leaf, RectangleHorizontal, RectangleVertical, BarChart, Car, Tool, Briefcase } from "lucide-react";
+import { Circle, Triangle, Hexagon, Square, Star, Leaf, RectangleHorizontal, RectangleVertical, BarChart, Car, Wrench, Briefcase } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export type Department = {
@@ -20,7 +20,7 @@ const departments: Department[] = [
   { id: "it", name: "Bilgi Tekonolojileri", icon: Triangle, color: "text-[#221F26]" },
   { id: "vehicle", name: "Araç Satın Alma", icon: Car, color: "text-[#D946EF]" },
   { id: "used", name: "2.El Araç Yönetimi", icon: Briefcase, color: "text-[#403E43]" },
-  { id: "maintenance", name: "Araç Bakım & Hasar Yönetimi", icon: Tool, color: "text-[#FEC6A1]" },
+  { id: "maintenance", name: "Araç Bakım & Hasar Yönetimi", icon: Wrench, color: "text-[#FEC6A1]" },
   { id: "sales", name: "Satış ve İş Geliştirme", icon: Star, color: "text-[#FDE1D3]" }
 ];
 
