@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { DepartmentSelector } from "@/components/DepartmentSelector";
 import { RiskSelector } from "@/components/RiskSelector";
@@ -11,6 +12,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import * as XLSX from 'xlsx';
 import { toast } from "sonner";
+import { getDepartmentName, getValueChainStepName } from "@/utils/translations";
 
 const Index = () => {
   const [selectedDepartment, setSelectedDepartment] = useState<string | null>(null);
@@ -40,12 +42,37 @@ const Index = () => {
     const wb = XLSX.utils.book_new();
 
     if (riskData.length > 0) {
-      const ws1 = XLSX.utils.json_to_sheet(riskData);
+      const formattedRiskData = riskData.map((assessment: any) => ({
+        department: getDepartmentName(assessment.department),
+        risk: assessment.risk,
+        valueChainStep: getValueChainStepName(assessment.valueChainStep),
+        probability: assessment.probability,
+        frequency: assessment.frequency,
+        severity: assessment.severity,
+        riskScore: assessment.riskScore,
+        financialImpact: assessment.financialImpact,
+        date: assessment.date
+      }));
+      const ws1 = XLSX.utils.json_to_sheet(formattedRiskData);
       XLSX.utils.book_append_sheet(wb, ws1, "Risk Değerlendirmeleri");
     }
 
     if (climateRiskData.length > 0) {
-      const ws2 = XLSX.utils.json_to_sheet(climateRiskData);
+      const formattedClimateData = climateRiskData.map((assessment: any) => ({
+        department: getDepartmentName(assessment.department),
+        risk: assessment.risk,
+        valueChainStep: getValueChainStepName(assessment.valueChainStep),
+        term: assessment.term === 'short' ? 'Kısa (0-5 Yıl)' : 
+              assessment.term === 'medium' ? 'Orta (5-10 Yıl)' : 
+              'Uzun (10-25)',
+        probability: assessment.probability,
+        frequency: assessment.frequency,
+        severity: assessment.severity,
+        riskScore: assessment.riskScore,
+        financialImpact: assessment.financialImpact,
+        date: assessment.date
+      }));
+      const ws2 = XLSX.utils.json_to_sheet(formattedClimateData);
       XLSX.utils.book_append_sheet(wb, ws2, "İklim Riski Değerlendirmeleri");
     }
 
