@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -13,6 +12,7 @@ interface ClimateRiskAssessmentProps {
   selectedDepartment: string | null;
   selectedRisk: string | null;
   selectedStep: string | null;
+  selectedTerm: string | null;
 }
 
 const getFinancialImpact = (riskScore: number): string => {
@@ -43,11 +43,25 @@ const getFrequencyDescription = (value: number): string => {
   return "";
 };
 
+const getTermLabel = (term: string): string => {
+  switch (term) {
+    case "short":
+      return "Kısa (0-5 Yıl)";
+    case "medium":
+      return "Orta (5-10 Yıl)";
+    case "long":
+      return "Uzun (10-25)";
+    default:
+      return "";
+  }
+};
+
 export const ClimateRiskAssessment = ({ 
   onCalculate, 
   selectedDepartment,
   selectedRisk,
-  selectedStep 
+  selectedStep,
+  selectedTerm
 }: ClimateRiskAssessmentProps) => {
   const [probability, setProbability] = useState("");
   const [frequency, setFrequency] = useState("");
@@ -70,8 +84,8 @@ export const ClimateRiskAssessment = ({
     const f = Number(frequency);
     const s = Number(severity);
 
-    if (!selectedDepartment || !selectedRisk || !selectedStep) {
-      toast.error("Lütfen departman, risk ve değer zinciri adımı seçin");
+    if (!selectedDepartment || !selectedRisk || !selectedStep || !selectedTerm) {
+      toast.error("Lütfen departman, risk, değer zinciri adımı ve vade seçin");
       return;
     }
 
@@ -88,6 +102,7 @@ export const ClimateRiskAssessment = ({
       department: selectedDepartment,
       risk: selectedRisk,
       valueChainStep: selectedStep,
+      term: selectedTerm,
       probability: p,
       frequency: f,
       severity: s,
@@ -115,6 +130,7 @@ export const ClimateRiskAssessment = ({
       department: getDepartmentName(assessment.department),
       risk: assessment.risk,
       valueChainStep: getValueChainStepName(assessment.valueChainStep),
+      term: getTermLabel(assessment.term),
       probability: assessment.probability,
       frequency: assessment.frequency,
       severity: assessment.severity,

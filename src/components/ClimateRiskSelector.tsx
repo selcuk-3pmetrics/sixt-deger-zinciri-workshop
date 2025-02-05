@@ -29,14 +29,25 @@ const climateRiskMappings: ClimateRiskMapping[] = [
   { area: "İklim Geçiş Riskleri", risk: "Yüksek Başlangıç Yatırımları" }
 ];
 
-const uniqueAreas = Array.from(new Set(climateRiskMappings.map(rm => rm.area))).sort();
+const terms = [
+  { value: "short", label: "Kısa (0-5 Yıl)" },
+  { value: "medium", label: "Orta (5-10 Yıl)" },
+  { value: "long", label: "Uzun (10-25)" }
+];
 
 interface ClimateRiskSelectorProps {
   selectedRisk: string | null;
+  selectedTerm: string | null;
   onSelect: (risk: string) => void;
+  onTermSelect: (term: string) => void;
 }
 
-export const ClimateRiskSelector = ({ selectedRisk, onSelect }: ClimateRiskSelectorProps) => {
+export const ClimateRiskSelector = ({ 
+  selectedRisk, 
+  selectedTerm,
+  onSelect,
+  onTermSelect
+}: ClimateRiskSelectorProps) => {
   const [selectedArea, setSelectedArea] = React.useState<string | null>(null);
 
   const filteredRisks = selectedArea
@@ -55,7 +66,7 @@ export const ClimateRiskSelector = ({ selectedRisk, onSelect }: ClimateRiskSelec
               <SelectValue placeholder="Risk alanı seçiniz" />
             </SelectTrigger>
             <SelectContent>
-              {uniqueAreas.map((area) => (
+              {Array.from(new Set(climateRiskMappings.map(rm => rm.area))).sort().map((area) => (
                 <SelectItem key={area} value={area}>
                   {area}
                 </SelectItem>
@@ -75,6 +86,24 @@ export const ClimateRiskSelector = ({ selectedRisk, onSelect }: ClimateRiskSelec
                 {filteredRisks.map((risk) => (
                   <SelectItem key={risk} value={risk}>
                     {risk}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        )}
+
+        {selectedRisk && (
+          <div>
+            <label className="text-sm font-medium mb-2 block">Vade</label>
+            <Select value={selectedTerm || undefined} onValueChange={onTermSelect}>
+              <SelectTrigger className={cn("w-full")}>
+                <SelectValue placeholder="Vade seçiniz" />
+              </SelectTrigger>
+              <SelectContent>
+                {terms.map((term) => (
+                  <SelectItem key={term.value} value={term.value}>
+                    {term.label}
                   </SelectItem>
                 ))}
               </SelectContent>

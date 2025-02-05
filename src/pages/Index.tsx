@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { DepartmentSelector } from "@/components/DepartmentSelector";
 import { RiskSelector } from "@/components/RiskSelector";
@@ -17,6 +16,7 @@ const Index = () => {
   const [selectedDepartment, setSelectedDepartment] = useState<string | null>(null);
   const [selectedRisk, setSelectedRisk] = useState<string | null>(null);
   const [selectedClimateRisk, setSelectedClimateRisk] = useState<string | null>(null);
+  const [selectedTerm, setSelectedTerm] = useState<string | null>(null);
   const [selectedStep, setSelectedStep] = useState<string | null>(null);
   const [riskScore, setRiskScore] = useState<number | null>(null);
   const [financialImpact, setFinancialImpact] = useState<string>("");
@@ -143,7 +143,9 @@ const Index = () => {
           <TabsContent value="climate" className="space-y-8">
             <ClimateRiskSelector
               selectedRisk={selectedClimateRisk}
+              selectedTerm={selectedTerm}
               onSelect={setSelectedClimateRisk}
+              onTermSelect={setSelectedTerm}
             />
             
             {selectedClimateRisk && (
@@ -159,6 +161,7 @@ const Index = () => {
                 selectedDepartment={selectedDepartment}
                 selectedRisk={selectedClimateRisk}
                 selectedStep={selectedStep}
+                selectedTerm={selectedTerm}
               />
             )}
             

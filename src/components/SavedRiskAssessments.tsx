@@ -1,6 +1,20 @@
+
 import { Button } from "@/components/ui/button";
 import { RiskAssessmentData } from "./RiskAssessment";
 import { getDepartmentName, getValueChainStepName } from "@/utils/translations";
+
+const getTermLabel = (term: string): string => {
+  switch (term) {
+    case "short":
+      return "Kısa (0-5 Yıl)";
+    case "medium":
+      return "Orta (5-10 Yıl)";
+    case "long":
+      return "Uzun (10-25)";
+    default:
+      return "";
+  }
+};
 
 interface SavedRiskAssessmentsProps {
   assessments: RiskAssessmentData[];
@@ -20,6 +34,9 @@ export const SavedRiskAssessments = ({ assessments, onDelete }: SavedRiskAssessm
               <p className="font-medium">{assessment.risk}</p>
               <p className="text-sm text-gray-600">
                 {getDepartmentName(assessment.department)} - {getValueChainStepName(assessment.valueChainStep)}
+              </p>
+              <p className="text-sm text-gray-600">
+                Vade: {getTermLabel(assessment.term)}
               </p>
               <p className="text-sm text-gray-600">
                 Risk Skoru: {assessment.riskScore.toFixed(2)}
