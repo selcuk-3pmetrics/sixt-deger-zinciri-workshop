@@ -1,4 +1,3 @@
-
 import * as React from "react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
@@ -9,24 +8,6 @@ type RiskMapping = {
 };
 
 const riskMappings: RiskMapping[] = [
-  { area: "İklim Fiziksel Riskleri", risk: "Aşırı Hava Olayları" },
-  { area: "İklim Fiziksel Riskleri", risk: "Enerji Maliyetlerinde Artış" },
-  { area: "İklim Fiziksel Riskleri", risk: "Su Kirliliği" },
-  { area: "İklim Fiziksel Riskleri", risk: "Tarım Üzerindeki Etkiler" },
-  { area: "İklim Fiziksel Riskleri", risk: "Ortalama Sıcaklık Artışı" },
-  { area: "İklim Fiziksel Riskleri", risk: "Meterolojik Kuraklık" },
-  { area: "İklim Fiziksel Riskleri", risk: "Şiddetli Rüzgarlar" },
-  { area: "İklim Fiziksel Riskleri", risk: "Sıcak Hava Dalgaları" },
-  { area: "İklim Fiziksel Riskleri", risk: "Orman Yangınları" },
-  { area: "İklim Fiziksel Riskleri", risk: "Şiddetli Yağışlar ve Sel" },
-  { area: "İklim Fiziksel Riskleri", risk: "Heyelan" },
-  { area: "İklim Fiziksel Riskleri", risk: "Deniz Seviyesinde Yükselme" },
-  { area: "İklim Geçiş Riskleri", risk: "Düzenleyici Riskler" },
-  { area: "İklim Geçiş Riskleri", risk: "Karbon Vergisi" },
-  { area: "İklim Geçiş Riskleri", risk: "ETS (Emisyon Ticaret Sistemi)" },
-  { area: "İklim Geçiş Riskleri", risk: "Paydaş Beklentilerindeki Değişimler" },
-  { area: "İklim Geçiş Riskleri", risk: "Yeşil Sertifikalar" },
-  { area: "İklim Geçiş Riskleri", risk: "Yüksek Başlangıç Yatırımları" },
   { area: "Çevre", risk: "Doğal Kaynak Kıtlığı" },
   { area: "Çevre", risk: "Kritik Düzeyde Küresel Sistem Değişimi" },
   { area: "Çevre", risk: "Karbon Ayak İzi" },
