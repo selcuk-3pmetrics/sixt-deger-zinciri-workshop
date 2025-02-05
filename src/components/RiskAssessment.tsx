@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -10,6 +11,7 @@ export type RiskAssessmentData = {
   department: string;
   risk: string;
   valueChainStep: string;
+  term?: string;
   probability: number;
   frequency: number;
   severity: number;
