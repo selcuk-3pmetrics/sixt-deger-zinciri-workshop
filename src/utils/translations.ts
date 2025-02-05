@@ -1,17 +1,17 @@
 
 export const departments = {
   management: "Yönetim-Strateji",
-  audit: "İç Denetim",
-  factory: "Fabrika Yönetimi",
-  quality: "Kalite",
-  sales: "Satış",
-  purchasing: "Satın Alma",
-  logistics: "Lojistik",
+  accounting: "Muhasebe",
   finance: "Finans",
-  hr: "İnsan Kaynakları",
-  it: "Bilgi Teknolojileri",
-  communications: "Kurumsal İletişim",
-  environment: "Çevre Yönetimi"
+  budgeting: "Bütçe ve Raporlama",
+  investor: "Yatırımcı İlişkileri",
+  marketing: "Pazarlama",
+  hr: "İnsan Kaynakları ve İdari İşler",
+  it: "Bilgi Tekonolojileri",
+  vehicle: "Araç Satın Alma",
+  used: "2.El Araç Yönetimi",
+  maintenance: "Araç Bakım & Hasar Yönetimi",
+  sales: "Satış ve İş Geliştirme"
 } as const;
 
 export const valueChainSteps = {

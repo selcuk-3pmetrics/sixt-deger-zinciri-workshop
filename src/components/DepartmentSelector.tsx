@@ -1,4 +1,5 @@
-import { Circle, Triangle, Hexagon, Square, Star, Leaf, RectangleHorizontal, RectangleVertical } from "lucide-react";
+
+import { Circle, Triangle, Hexagon, Square, Star, Leaf, RectangleHorizontal, RectangleVertical, BarChart, Car, Tool, Briefcase } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export type Department = {
@@ -10,17 +11,17 @@ export type Department = {
 
 const departments: Department[] = [
   { id: "management", name: "Yönetim-Strateji", icon: Hexagon, color: "text-[#9b87f5]" },
-  { id: "audit", name: "İç Denetim", icon: Triangle, color: "text-[#7E69AB]" },
-  { id: "factory", name: "Fabrika Yönetimi", icon: Square, color: "text-[#F97316]" },
-  { id: "quality", name: "Kalite", icon: Circle, color: "text-[#0EA5E9]" },
-  { id: "sales", name: "Satış", icon: Star, color: "text-[#D946EF]" },
-  { id: "purchasing", name: "Satın Alma", icon: RectangleVertical, color: "text-[#8B5CF6]" },
-  { id: "logistics", name: "Lojistik", icon: RectangleHorizontal, color: "text-[#1EAEDB]" },
-  { id: "finance", name: "Finans", icon: Triangle, color: "text-[#221F26]" },
-  { id: "hr", name: "İnsan Kaynakları", icon: Square, color: "text-[#D946EF]" },
-  { id: "it", name: "Bilgi Teknolojileri", icon: Circle, color: "text-[#403E43]" },
-  { id: "communications", name: "Kurumsal İletişim", icon: Star, color: "text-[#FEC6A1]" },
-  { id: "environment", name: "Çevre Yönetimi", icon: Leaf, color: "text-[#FDE1D3]" }
+  { id: "accounting", name: "Muhasebe", icon: Triangle, color: "text-[#7E69AB]" },
+  { id: "finance", name: "Finans", icon: Square, color: "text-[#F97316]" },
+  { id: "budgeting", name: "Bütçe ve Raporlama", icon: BarChart, color: "text-[#0EA5E9]" },
+  { id: "investor", name: "Yatırımcı İlişkileri", icon: Star, color: "text-[#D946EF]" },
+  { id: "marketing", name: "Pazarlama", icon: RectangleVertical, color: "text-[#8B5CF6]" },
+  { id: "hr", name: "İnsan Kaynakları ve İdari İşler", icon: Circle, color: "text-[#1EAEDB]" },
+  { id: "it", name: "Bilgi Tekonolojileri", icon: Triangle, color: "text-[#221F26]" },
+  { id: "vehicle", name: "Araç Satın Alma", icon: Car, color: "text-[#D946EF]" },
+  { id: "used", name: "2.El Araç Yönetimi", icon: Briefcase, color: "text-[#403E43]" },
+  { id: "maintenance", name: "Araç Bakım & Hasar Yönetimi", icon: Tool, color: "text-[#FEC6A1]" },
+  { id: "sales", name: "Satış ve İş Geliştirme", icon: Star, color: "text-[#FDE1D3]" }
 ];
 
 interface DepartmentSelectorProps {
