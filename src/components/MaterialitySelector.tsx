@@ -1,3 +1,4 @@
+
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 
@@ -10,41 +11,45 @@ const materialityItems: MaterialityItem[] = [
   {
     category: "Çevre",
     items: [
-      "İklim Değişikliği",
-      "Döngüsel Ekonomi ve Kaynak Verimliliği",
       "Emisyon Yönetimi",
-      "Atık yönetimi",
+      "İklim Değişikliği",
+      "Enerji Verimliliği ve Yönetimi",
+      "Temiz Filo Teknolojisi",
+      "Paylaşımcı Yolculuk",
       "Su Yönetimi",
-      "Biyoçeşitlilik"
+      "Atık Yönetimi",
+      "Ulaşımın Elektrifikasyonu",
+      "Biyoçeşitlilik",
+      "Çevresel Yatırımlar"
     ]
   },
   {
     category: "Sosyal",
     items: [
       "Çalışan Memnuniyeti ve Bağlılığı",
+      "Çeşitlilik ve Cinsiyet Eşitliliği",
       "Yetenek Gelişimi",
-      "Çeşitliliğin, Cinsiyet ve Fırsat Eşitliğinin Sağlanması",
       "İnsan Hakları",
       "İş Sağlığı ve Güvenliği",
       "Kurumsal Sosyal Sorumluluk",
-      "Paydaşlarla Diyalog"
+      "Gönüllülük",
+      "Toplumsal Yatırımlar",
+      "Örgütlenme Özgürlüğü"
     ]
   },
   {
     category: "Yönetişim",
     items: [
-      "Veri Gizliliği ve Sibergüvenlik",
-      "Müşteri Memnuniyeti",
+      "Etik Uyum ve Yolsuzlukla Mücadele",
+      "Şeffaflık ve İzlenebilirlik",
+      "Araç ve Yol Güvenliği",
       "Tedarik Zincirinde Sürdürülebilirlik",
-      "Ürün Güvenliği ve Kalitesi",
-      "Finansal Performans",
-      "Etik Uyum ve Yolsuzluk",
+      "Marka İtibarı ve Bağlılığı",
       "Kurumsal Yönetişim",
-      "Şefffaflık ve İzlenebilirlik",
+      "Kurumsal Risk Yönetimi",
+      "Müşteri Memnuniyeti",
       "Dijitalleşme",
-      "Risk Yönetimi",
-      "Yasal Düzenlemeler",
-      "Ar-Ge ve İnovasyon"
+      "Veri Gizliliği ve Sibergüvenlik"
     ]
   }
 ];
