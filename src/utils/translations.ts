@@ -1,3 +1,4 @@
+
 export const departments = {
   management: "Yönetim-Strateji",
   audit: "İç Denetim",
@@ -14,15 +15,14 @@ export const departments = {
 } as const;
 
 export const valueChainSteps = {
-  "raw-materials": "Hammadde Temini",
-  "production": "Üretim Süreci",
-  "quality": "Kalite Kontrol",
-  "storage": "Depolama",
-  "logistics": "Lojistik",
-  "sales-marketing": "Satış ve Pazarlama",
-  "r-and-d": "Ar-Ge",
-  "customer-relations": "Müşteri İlişkileri",
-  "finance-legal": "Finans ve Hukuk"
+  "vehicle-supply": "Araç Tedariği",
+  "fleet-management": "Filo Yönetimi",
+  "reservation-rental": "Rezervasyon ve Kiralama",
+  "customer-service": "Müşteri Hizmetleri",
+  "marketing-sales": "Pazarlama ve Satış",
+  "technology-it": "Teknoloji ve Bilgi Sistemleri",
+  "legal-compliance": "Hukuk ve Uyumluluk",
+  "finance-accounting": "Finans ve Muhasebe"
 } as const;
 
 export const getDepartmentName = (departmentId: string): string => {

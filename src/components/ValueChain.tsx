@@ -1,50 +1,46 @@
+
 import { cn } from "@/lib/utils";
 
 export const valueChainSteps = [
   {
-    id: "raw-materials",
-    name: "Hammadde Temini",
-    description: "Hammadde tedarik ve yönetim süreçleri",
+    id: "vehicle-supply",
+    name: "Araç Tedariği",
+    description: "Araç tedarik ve yönetim süreçleri",
   },
   {
-    id: "production",
-    name: "Üretim Süreci",
-    description: "Mal ve hizmetlerin üretim süreçleri",
+    id: "fleet-management",
+    name: "Filo Yönetimi",
+    description: "Filo operasyon ve bakım süreçleri",
   },
   {
-    id: "quality",
-    name: "Kalite Kontrol",
-    description: "Kalite kontrol ve güvence süreçleri",
+    id: "reservation-rental",
+    name: "Rezervasyon ve Kiralama",
+    description: "Rezervasyon ve kiralama süreçleri",
   },
   {
-    id: "storage",
-    name: "Depolama",
-    description: "Ürün ve malzeme depolama süreçleri",
-  },
-  {
-    id: "logistics",
-    name: "Lojistik",
-    description: "Tedarik zinciri ve dağıtım süreçleri",
-  },
-  {
-    id: "sales-marketing",
-    name: "Satış ve Pazarlama",
-    description: "Ürünlerin müşteriyle buluşturulması",
-  },
-  {
-    id: "r-and-d",
-    name: "Ar-Ge",
-    description: "Araştırma ve geliştirme faaliyetleri",
-  },
-  {
-    id: "customer-relations",
-    name: "Müşteri İlişkileri",
+    id: "customer-service",
+    name: "Müşteri Hizmetleri",
     description: "Müşteri ilişkileri yönetimi",
   },
   {
-    id: "finance-legal",
-    name: "Finans ve Hukuk",
-    description: "Finansal ve hukuki süreçler",
+    id: "marketing-sales",
+    name: "Pazarlama ve Satış",
+    description: "Pazarlama ve satış stratejileri",
+  },
+  {
+    id: "technology-it",
+    name: "Teknoloji ve Bilgi Sistemleri",
+    description: "Teknolojik altyapı ve sistemler",
+  },
+  {
+    id: "legal-compliance",
+    name: "Hukuk ve Uyumluluk",
+    description: "Yasal süreçler ve uyum yönetimi",
+  },
+  {
+    id: "finance-accounting",
+    name: "Finans ve Muhasebe",
+    description: "Finansal yönetim ve muhasebe süreçleri",
   },
 ];
 
