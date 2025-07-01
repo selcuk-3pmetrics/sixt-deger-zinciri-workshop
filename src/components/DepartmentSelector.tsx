@@ -1,5 +1,5 @@
 
-import { Circle, Triangle, Hexagon, Square, Star, Leaf, RectangleHorizontal, RectangleVertical, BarChart, Car, Wrench, Briefcase } from "lucide-react";
+import { Circle, Triangle, Hexagon, Square, Star, Leaf, RectangleHorizontal, RectangleVertical, BarChart, Car, Wrench, Briefcase, Shield, Calculator, TrendingUp, Phone, DollarSign, Monitor, AlertTriangle, Lightbulb, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export type Department = {
@@ -10,18 +10,16 @@ export type Department = {
 };
 
 const departments: Department[] = [
-  { id: "management", name: "Yönetim-Strateji", icon: Hexagon, color: "text-[#9b87f5]" },
-  { id: "accounting", name: "Muhasebe", icon: Triangle, color: "text-[#7E69AB]" },
-  { id: "finance", name: "Finans", icon: Square, color: "text-[#F97316]" },
-  { id: "budgeting", name: "Bütçe ve Raporlama", icon: BarChart, color: "text-[#0EA5E9]" },
-  { id: "investor", name: "Yatırımcı İlişkileri", icon: Star, color: "text-[#D946EF]" },
-  { id: "marketing", name: "Pazarlama", icon: RectangleVertical, color: "text-[#8B5CF6]" },
-  { id: "hr", name: "İnsan Kaynakları ve İdari İşler", icon: Circle, color: "text-[#1EAEDB]" },
-  { id: "it", name: "Bilgi Tekonolojileri", icon: Triangle, color: "text-[#221F26]" },
-  { id: "vehicle", name: "Araç Satın Alma", icon: Car, color: "text-[#D946EF]" },
-  { id: "used", name: "2.El Araç Yönetimi", icon: Briefcase, color: "text-[#403E43]" },
-  { id: "maintenance", name: "Araç Bakım & Hasar Yönetimi", icon: Wrench, color: "text-[#FEC6A1]" },
-  { id: "sales", name: "Satış ve İş Geliştirme", icon: Star, color: "text-[#FDE1D3]" }
+  { id: "damage", name: "Hasar (Tazminat) Departmanı", icon: Shield, color: "text-[#9b87f5]" },
+  { id: "underwriting", name: "Underwriting (Risk Değerlendirme) Departmanı", icon: Triangle, color: "text-[#7E69AB]" },
+  { id: "actuarial", name: "Aktüerya Departmanı", icon: Calculator, color: "text-[#F97316]" },
+  { id: "sales-marketing", name: "Satış ve Pazarlama Departmanı", icon: TrendingUp, color: "text-[#0EA5E9]" },
+  { id: "customer-service", name: "Müşteri Hizmetleri Departmanı", icon: Phone, color: "text-[#D946EF]" },
+  { id: "finance-accounting", name: "Finans ve Muhasebe Departmanı", icon: DollarSign, color: "text-[#8B5CF6]" },
+  { id: "it", name: "Bilgi Teknolojileri (IT) Departmanı", icon: Monitor, color: "text-[#1EAEDB]" },
+  { id: "risk-compliance", name: "Risk Yönetimi ve Uyum (Compliance) Departmanı", icon: AlertTriangle, color: "text-[#221F26]" },
+  { id: "product-development", name: "Ürün Geliştirme Departmanı", icon: Lightbulb, color: "text-[#D946EF]" },
+  { id: "hr", name: "İnsan Kaynakları (İK) Departmanı", icon: Users, color: "text-[#403E43]" }
 ];
 
 interface DepartmentSelectorProps {
