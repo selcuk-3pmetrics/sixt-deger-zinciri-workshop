@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { DepartmentSelector } from "@/components/DepartmentSelector";
 import { RiskSelector } from "@/components/RiskSelector";
@@ -43,15 +42,15 @@ const Index = () => {
 
     if (riskData.length > 0) {
       const formattedRiskData = riskData.map((assessment: any) => ({
-        department: getDepartmentName(assessment.department),
-        risk: assessment.risk,
-        valueChainStep: getValueChainStepName(assessment.valueChainStep),
-        probability: assessment.probability,
-        frequency: assessment.frequency,
-        severity: assessment.severity,
-        riskScore: assessment.riskScore,
-        financialImpact: assessment.financialImpact,
-        date: assessment.date
+        'Departman': getDepartmentName(assessment.department),
+        'Risk': assessment.risk,
+        'Değer Zinciri Adımı': getValueChainStepName(assessment.valueChainStep),
+        'Olasılık': assessment.probability,
+        'Sıklık': assessment.frequency,
+        'Şiddet': assessment.severity,
+        'Risk Skoru': assessment.riskScore,
+        'Finansal Etki': assessment.financialImpact,
+        'Tarih': new Date(assessment.date).toLocaleDateString('tr-TR')
       }));
       const ws1 = XLSX.utils.json_to_sheet(formattedRiskData);
       XLSX.utils.book_append_sheet(wb, ws1, "Risk Değerlendirmeleri");
@@ -59,30 +58,45 @@ const Index = () => {
 
     if (climateRiskData.length > 0) {
       const formattedClimateData = climateRiskData.map((assessment: any) => ({
-        department: getDepartmentName(assessment.department),
-        risk: assessment.risk,
-        valueChainStep: getValueChainStepName(assessment.valueChainStep),
-        term: assessment.term === 'short' ? 'Kısa (0-5 Yıl)' : 
+        'Departman': getDepartmentName(assessment.department),
+        'Risk': assessment.risk,
+        'Değer Zinciri Adımı': getValueChainStepName(assessment.valueChainStep),
+        'Vade': assessment.term === 'short' ? 'Kısa (0-5 Yıl)' : 
               assessment.term === 'medium' ? 'Orta (5-10 Yıl)' : 
-              'Uzun (10-25)',
-        probability: assessment.probability,
-        frequency: assessment.frequency,
-        severity: assessment.severity,
-        riskScore: assessment.riskScore,
-        financialImpact: assessment.financialImpact,
-        date: assessment.date
+              'Uzun (10-25 Yıl)',
+        'Olasılık': assessment.probability,
+        'Sıklık': assessment.frequency,
+        'Şiddet': assessment.severity,
+        'Risk Skoru': assessment.riskScore,
+        'Finansal Etki': assessment.financialImpact,
+        'Tarih': new Date(assessment.date).toLocaleDateString('tr-TR')
       }));
       const ws2 = XLSX.utils.json_to_sheet(formattedClimateData);
       XLSX.utils.book_append_sheet(wb, ws2, "İklim Riski Değerlendirmeleri");
     }
 
     if (materialityData.length > 0) {
-      const ws3 = XLSX.utils.json_to_sheet(materialityData);
+      const formattedMaterialityData = materialityData.map((assessment: any) => ({
+        'Departman': assessment.department,
+        'Ana Kategori': assessment.mainCategory,
+        'Önemlilik Maddesi': assessment.materialityItem,
+        'Değer Zinciri Adımı': assessment.valueChainStep,
+        'Önemlilik Derecesi': assessment.materialityDegree,
+        'Tarih': new Date(assessment.date).toLocaleDateString('tr-TR')
+      }));
+      const ws3 = XLSX.utils.json_to_sheet(formattedMaterialityData);
       XLSX.utils.book_append_sheet(wb, ws3, "Önemlilik Analizleri");
     }
 
     if (opportunityData.length > 0) {
-      const ws4 = XLSX.utils.json_to_sheet(opportunityData);
+      const formattedOpportunityData = opportunityData.map((assessment: any) => ({
+        'Departman': getDepartmentName(assessment.department),
+        'Ana Kategori': assessment.mainCategory,
+        'Fırsat Maddesi': assessment.opportunityItem,
+        'Değer Zinciri Adımı': getValueChainStepName(assessment.valueChainStep),
+        'Tarih': new Date(assessment.date).toLocaleDateString('tr-TR')
+      }));
+      const ws4 = XLSX.utils.json_to_sheet(formattedOpportunityData);
       XLSX.utils.book_append_sheet(wb, ws4, "Fırsat Analizleri");
     }
 
