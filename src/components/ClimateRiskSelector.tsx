@@ -1,4 +1,3 @@
-
 import * as React from "react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
@@ -10,8 +9,6 @@ type ClimateRiskMapping = {
 
 const climateRiskMappings: ClimateRiskMapping[] = [
   { area: "İklim Fiziksel Riskleri", risk: "Aşırı Hava Olayları" },
-  { area: "İklim Fiziksel Riskleri", risk: "Enerji Maliyetlerinde Artış" },
-  { area: "İklim Fiziksel Riskleri", risk: "Su Kirliliği" },
   { area: "İklim Fiziksel Riskleri", risk: "Tarım Üzerindeki Etkiler" },
   { area: "İklim Fiziksel Riskleri", risk: "Ortalama Sıcaklık Artışı" },
   { area: "İklim Fiziksel Riskleri", risk: "Meterolojik Kuraklık" },
@@ -22,11 +19,9 @@ const climateRiskMappings: ClimateRiskMapping[] = [
   { area: "İklim Fiziksel Riskleri", risk: "Heyelan" },
   { area: "İklim Fiziksel Riskleri", risk: "Deniz Seviyesinde Yükselme" },
   { area: "İklim Geçiş Riskleri", risk: "Düzenleyici Riskler" },
-  { area: "İklim Geçiş Riskleri", risk: "Karbon Vergisi" },
-  { area: "İklim Geçiş Riskleri", risk: "ETS (Emisyon Ticaret Sistemi)" },
   { area: "İklim Geçiş Riskleri", risk: "Paydaş Beklentilerindeki Değişimler" },
-  { area: "İklim Geçiş Riskleri", risk: "Yeşil Sertifikalar" },
-  { area: "İklim Geçiş Riskleri", risk: "Yüksek Başlangıç Yatırımları" }
+  { area: "İklim Geçiş Riskleri", risk: "Sürdürülebilir Finansman" },
+  { area: "İklim Geçiş Riskleri", risk: "Yeşil Sertifikalar" }
 ];
 
 const terms = [
