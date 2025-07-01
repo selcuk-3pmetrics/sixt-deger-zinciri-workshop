@@ -15,11 +15,11 @@ export const departments = {
 } as const;
 
 export const valueChainSteps = {
-  "vehicle-supply": "Araç Tedariği",
-  "fleet-management": "Filo Yönetimi",
-  "reservation-rental": "Rezervasyon ve Kiralama",
+  "product-development": "Ürün Geliştirme",
+  "marketing": "Pazarlama", 
+  "insurance-sales": "Sigorta Alımı/Satışı",
+  "risk-analysis": "Risk Analizi ve Yönetimi",
   "customer-service": "Müşteri Hizmetleri",
-  "marketing-sales": "Pazarlama ve Satış",
   "technology-it": "Teknoloji ve Bilgi Sistemleri",
   "legal-compliance": "Hukuk ve Uyumluluk",
   "finance-accounting": "Finans ve Muhasebe"

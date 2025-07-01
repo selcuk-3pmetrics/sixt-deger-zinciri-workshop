@@ -3,34 +3,34 @@ import { cn } from "@/lib/utils";
 
 export const valueChainSteps = [
   {
-    id: "vehicle-supply",
-    name: "Araç Tedariği",
-    description: "Araç tedarik ve yönetim süreçleri",
+    id: "product-development",
+    name: "Ürün Geliştirme",
+    description: "Sigorta ürünlerinin geliştirilmesi ve tasarımı",
   },
   {
-    id: "fleet-management",
-    name: "Filo Yönetimi",
-    description: "Filo operasyon ve bakım süreçleri",
+    id: "marketing",
+    name: "Pazarlama",
+    description: "Pazarlama stratejileri ve müşteri kazanımı",
   },
   {
-    id: "reservation-rental",
-    name: "Rezervasyon ve Kiralama",
-    description: "Rezervasyon ve kiralama süreçleri",
+    id: "insurance-sales",
+    name: "Sigorta Alımı/Satışı",
+    description: "Sigorta poliçelerinin satış ve alım süreçleri",
+  },
+  {
+    id: "risk-analysis",
+    name: "Risk Analizi ve Yönetimi",
+    description: "Risk değerlendirme ve yönetim süreçleri",
   },
   {
     id: "customer-service",
     name: "Müşteri Hizmetleri",
-    description: "Müşteri ilişkileri yönetimi",
-  },
-  {
-    id: "marketing-sales",
-    name: "Pazarlama ve Satış",
-    description: "Pazarlama ve satış stratejileri",
+    description: "Müşteri ilişkileri ve hizmet yönetimi",
   },
   {
     id: "technology-it",
     name: "Teknoloji ve Bilgi Sistemleri",
-    description: "Teknolojik altyapı ve sistemler",
+    description: "Teknolojik altyapı ve bilgi sistemleri",
   },
   {
     id: "legal-compliance",
