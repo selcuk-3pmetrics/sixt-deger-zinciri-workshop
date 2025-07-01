@@ -1,3 +1,4 @@
+
 import * as React from "react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
@@ -9,18 +10,18 @@ type ClimateRiskMapping = {
 
 const climateRiskMappings: ClimateRiskMapping[] = [
   { area: "İklim Fiziksel Riskleri", risk: "Aşırı Hava Olayları" },
-  { area: "İklim Fiziksel Riskleri", risk: "Tarım Üzerindeki Etkiler" },
-  { area: "İklim Fiziksel Riskleri", risk: "Ortalama Sıcaklık Artışı" },
-  { area: "İklim Fiziksel Riskleri", risk: "Meterolojik Kuraklık" },
-  { area: "İklim Fiziksel Riskleri", risk: "Şiddetli Rüzgarlar" },
-  { area: "İklim Fiziksel Riskleri", risk: "Sıcak Hava Dalgaları" },
-  { area: "İklim Fiziksel Riskleri", risk: "Orman Yangınları" },
-  { area: "İklim Fiziksel Riskleri", risk: "Şiddetli Yağışlar ve Sel" },
-  { area: "İklim Fiziksel Riskleri", risk: "Heyelan" },
   { area: "İklim Fiziksel Riskleri", risk: "Deniz Seviyesinde Yükselme" },
+  { area: "İklim Fiziksel Riskleri", risk: "Heyelan" },
+  { area: "İklim Fiziksel Riskleri", risk: "Meterolojik Kuraklık" },
+  { area: "İklim Fiziksel Riskleri", risk: "Orman Yangınları" },
+  { area: "İklim Fiziksel Riskleri", risk: "Ortalama Sıcaklık Artışı" },
   { area: "İklim Geçiş Riskleri", risk: "Düzenleyici Riskler" },
   { area: "İklim Geçiş Riskleri", risk: "Paydaş Beklentilerindeki Değişimler" },
+  { area: "İklim Fiziksel Riskleri", risk: "Sıcak Hava Dalgaları" },
   { area: "İklim Geçiş Riskleri", risk: "Sürdürülebilir Finansman" },
+  { area: "İklim Fiziksel Riskleri", risk: "Şiddetli Rüzgarlar" },
+  { area: "İklim Fiziksel Riskleri", risk: "Şiddetli Yağışlar ve Sel" },
+  { area: "İklim Fiziksel Riskleri", risk: "Tarım Üzerindeki Etkiler" },
   { area: "İklim Geçiş Riskleri", risk: "Yeşil Sertifikalar" }
 ];
 
@@ -46,7 +47,7 @@ export const ClimateRiskSelector = ({
   const [selectedArea, setSelectedArea] = React.useState<string | null>(null);
 
   const filteredRisks = selectedArea
-    ? climateRiskMappings.filter(rm => rm.area === selectedArea).map(rm => rm.risk)
+    ? climateRiskMappings.filter(rm => rm.area === selectedArea).map(rm => rm.risk).sort()
     : [];
 
   return (
