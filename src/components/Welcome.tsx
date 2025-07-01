@@ -11,7 +11,7 @@ const Welcome = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === "sixt") {
+    if (password === "magdeburger") {
       navigate("/dashboard");
     } else {
       toast.error("Yanlış şifre!");
