@@ -1,3 +1,4 @@
+
 import * as React from "react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
@@ -8,22 +9,27 @@ type RiskMapping = {
 };
 
 const riskMappings: RiskMapping[] = [
+  { area: "Çevre", risk: "İklim Değişikliği" },
   { area: "Çevre", risk: "Doğal Kaynak Kıtlığı" },
   { area: "Çevre", risk: "Kritik Düzeyde Küresel Sistem Değişimi" },
-  { area: "Çevre", risk: "Karbon Ayak İzi" },
-  { area: "Çevre", risk: "Emisyon Yönetimi" },
-  { area: "Çevre", risk: "Temiz ve Kaliteli Suya Erişim" },
-  { area: "Çevre", risk: "Doğaya Yatırım" },
   { area: "Çevre", risk: "Sürdürülebilirlik" },
   { area: "Çalışan", risk: "Eşitlik, Çeşitlik ve Kapsayıcılık" },
+  { area: "Çalışan", risk: "Çalışan Hakları" },
+  { area: "Çalışan", risk: "İşgücü Yönetimi" },
+  { area: "Çalışan", risk: "Yetenek Kaybı" },
+  { area: "Çalışan", risk: "Adil Ücretlendirme" },
   { area: "Çalışan", risk: "Satış Uygulamaları" },
-  { area: "Çalışan", risk: "Ürün Etiketleme" },
+  { area: "Çalışan", risk: "Çalışan Memnuniyeti" },
+  { area: "Çalışan", risk: "Çalışma Saatleri" },
   { area: "Ekonomi", risk: "Alım gücünde azalma/daralma" },
   { area: "Ekonomi", risk: "Ekonomik Durgunluk ve Eflasyon" },
   { area: "Ekonomi", risk: "Likidite Riski" },
+  { area: "Ekonomi", risk: "Kur Farkı Riski" },
   { area: "Ekonomi", risk: "Politik ve Ekonomik İstikrarsızlık" },
+  { area: "Teknoloji", risk: "Yapay Zeka Yönetimi" },
   { area: "Teknoloji", risk: "Yanlış bilgi ve dezenformasyon" },
   { area: "Teknoloji", risk: "Siber güvensizlik" },
+  { area: "Teknoloji", risk: "Teknolojik gelişmelere uyum sağlayamama" },
   { area: "Teknoloji", risk: "Mevcut Yenilikler ve Gelişen Teknoloji" },
   { area: "Teknoloji", risk: "Dijital kapasite" },
   { area: "Yönetişim", risk: "Yönetişim Gereksinimleri" },
@@ -32,30 +38,20 @@ const riskMappings: RiskMapping[] = [
   { area: "Yönetişim", risk: "İş Kazaları" },
   { area: "Yönetişim", risk: "Müşteri Memnuniyeti" },
   { area: "Yönetişim", risk: "Ürün Kalitesi" },
-  { area: "Yönetişim", risk: "Taşeronların İSG riskleri" },
   { area: "Yönetişim", risk: "Yolsuzlukla ve rüşvetle mücadele" },
   { area: "Yönetişim", risk: "Yeni Çalışma Düzeni ve Beklentiler" },
   { area: "Yönetişim", risk: "Stratejik Marka Algısı ve Pazar Payı Kaybı" },
   { area: "Tedarik Zinciri Yönetimi", risk: "Tedarik Zinciri Yönetimi" },
   { area: "Tedarik Zinciri Yönetimi", risk: "Tedarik Zinciri Çeşitliliği" },
-  { area: "Tedarik Zinciri Yönetimi", risk: "Tedarik Zinciri Çevresel Uygunluk" },
   { area: "Düzenlemeler ve Uyum", risk: "Raporlama Standartları ve Regülasyonlar" },
   { area: "Düzenlemeler ve Uyum", risk: "Yasal uyuşmazlık" },
   { area: "Düzenlemeler ve Uyum", risk: "Yasal Kısıtlamalar ve Vergiler" },
   { area: "Toplum", risk: "Ekonomik fırsat eksikliği" },
+  { area: "Toplum", risk: "Zorunlu göç" },
   { area: "Toplum", risk: "Politik kutuplaşma" },
   { area: "Toplum", risk: "Uluslararası silahlı çatışma" },
-  { area: "Doğal Afet", risk: "Yangın" },
-  { area: "Araç Sektörü", risk: "Şarj Altyapısı" },
-  { area: "Araç Sektörü", risk: "Mobilite" },
-  { area: "Araç Sektörü", risk: "Araç Paylaşımcılığı" },
-  { area: "Araç Sektörü", risk: "Filo Yönetimi" },
-  { area: "Araç Sektörü", risk: "Elektrikli Araç Deneyimi" },
-  { area: "Araç Sektörü", risk: "Ürün Yaşam Döngüsü" },
-  { area: "Araç Sektörü", risk: "Sürdürülebilir Araç Temizleme Malzemeleri" },
-  { area: "Araç Sektörü", risk: "Ulaşım Güvenliği" },
-  { area: "Araç Sektörü", risk: "Müşteri Şikayetleri" },
-  { area: "Araç Sektörü", risk: "Müşteri Eğitimleri" }
+  { area: "Doğal Afet", risk: "Deprem" },
+  { area: "Doğal Afet", risk: "Yangın" }
 ];
 
 const uniqueAreas = Array.from(new Set(riskMappings.map(rm => rm.area))).sort();
