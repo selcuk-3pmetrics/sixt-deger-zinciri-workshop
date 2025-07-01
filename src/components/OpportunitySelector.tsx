@@ -1,3 +1,4 @@
+
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
@@ -11,69 +12,90 @@ const opportunityItems: OpportunityItem[] = [
   {
     category: "Çevre",
     items: [
-      "Atık İyileşltirme Projeleri",
-      "Atıkların Yeniden Kullanılması",
-      "Doğa Dostu Şirket Olma",
-      "Doğal Koruma Alanları Oluşturma",
-      "Düşük Karbonlu Üretim Teknolojileri",
-      "Emisyon Azaltım Amaçları",
-      "Enerji Tasarrufu Yatırımları",
-      "Enerji Verimli Tesisler",
-      "Enerji Yönetim Sistemleri",
-      "Geri Dönüştürülebilir Ürün Kullanımı",
-      "Su Arıtma Teknolojileri",
-      "Su Geri Kazanımı",
-      "Tür Spesifik Çalışmalar",
-      "Ürün Ömrünü Uzatmak",
-      "Yenilebilir Enerji Kullanımı",
-      "Yeşil Finansmanlardan Yararlanmak",
-      "Yeşil Ürün Sertifikaları",
+      "İklim değişikliği risklerine karşı yeşil sigorta ürünleri geliştirerek yeni pazarlar yaratmak.",
+      "Doğal afetlerin sıklığı artarken, afet teminatlı poliçelerle risk yönetimi hizmetlerini çeşitlendirmek.",
+      "Sürdürülebilirlik temelli sigorta çözümleriyle kurumsal müşterilere çevresel performans iyileştirme danışmanlığı sunmak.",
+      "Karbon ayak izini azaltan operasyonel uygulamalarla yatırımcı ve müşteri güvenini artırmak.",
       "Diğer"
     ]
   },
   {
-    category: "Sosyal",
+    category: "Çalışan",
     items: [
-      "Atölye Çalışmaları",
-      "Eğitim ve Gelişim Programları",
-      "Eğitimler ve Burs İmkanları",
-      "Esnek Çalışma Modelleri",
-      "Fırsat Eşitliği Programları",
-      "Gönüllülük Projeleri",
-      "İnsan Haklarına Olumlu Katkı Veren Şirket Olmak",
-      "İş Güvenliği Kültürü",
-      "İş Sağlığı ve Güvenliğinde İnovasyon",
-      "Mentorluk ve Koçluk",
-      "STK'larla İşbirlikleri",
-      "Teşvik ve Ödül Sistemleri",
+      "Çalışan çeşitliliği ve kapsayıcılığı ile inovasyonu ve müşteri odaklı hizmet kalitesini artırmak.",
+      "Yetkinlik geliştirme ve eğitim programları ile sigorta uzmanlarının risk analiz yetkinliklerini güçlendirmek.",
+      "Esnek çalışma modelleri ile çalışan bağlılığını artırarak iş gücü devrini azaltmak.",
+      "Adil ücretlendirme ve iyi çalışma koşullarıyla etik iş kültürünü güçlendirmek, itibar riskini azaltmak.",
+      "Diğer"
+    ]
+  },
+  {
+    category: "Ekonomi",
+    items: [
+      "Ekonomik dalgalanmalara karşı finansal dayanıklılığı artıran yeni sigorta ürünleri geliştirmek.",
+      "Enflasyon ve likidite risklerine karşı esnek prim ve tazminat modelleri tasarlamak.",
+      "Ekonomik durgunluk dönemlerinde müşterilerin ihtiyaçlarına uygun mikro sigorta ve esnek ödeme çözümleri sunmak.",
+      "Ekonomik istikrarsızlıklardan doğan yeni risklere yönelik danışmanlık ve risk yönetimi hizmetleri sunmak.",
+      "Diğer"
+    ]
+  },
+  {
+    category: "Teknoloji",
+    items: [
+      "Yapay zeka ve veri analitiği kullanarak müşteri risk profillerini daha doğru belirlemek ve kişiselleştirilmiş poliçeler sunmak.",
+      "Siber güvenlik sigortaları ile artan siber saldırı risklerine karşı müşterilere koruma sağlamak.",
+      "Dijital kanallar ve otomasyon ile operasyonel maliyetleri azaltıp müşteri deneyimini iyileştirmek.",
+      "Yanlış bilgi ve dezenformasyonla mücadele için şeffaf iletişim stratejileri geliştirerek müşteri güvenini artırmak.",
       "Diğer"
     ]
   },
   {
     category: "Yönetişim",
     items: [
-      "Dijitalleşmiş İş Süreçleri",
-      "Güçlü İç Kontrol Sistemleri",
-      "İnovasyon Kültürü",
-      "İtibar ve Müşteri Güveni",
-      "İzleme, Geri Çekme ve İyileştirme Prosedürleri",
-      "Kamuoyu Güveni",
-      "Kişiselleştirilmiş Hizmet",
-      "Lokal Uygulamalar",
-      "Paydaş ve Müşteri Gözünde Güçlü Şirket Olmak",
-      "Rakabet Avantajı",
-      "Siber Güvenlik Eğitim ve Farkındalığı",
-      "Sürdürülebilir Yatırımlar",
-      "Tedarikçi Denetimleri",
-      "Teknolojik Gelişmelere Uyum Sağlama",
-      "Uzun Süreli Değer Yaratan Şirket Olmak",
-      "Veri Sağlayıcılara Bağımlı Olmama",
-      "Yasal Düzenleme Uyumlu Şirket Olma",
-      "Yasal Uyumluluk",
-      "Yatırımcı Güveni Oluşturma",
-      "Yeşil Tedarik Zinciri Oluşturma",
-      "Yüksek Kalite Standartları ve Sertifikaları",
-      "Zorluklara Karşı Güçlü Şirket",
+      "Şeffaf raporlama ve güçlü yönetişim uygulamaları ile yatırımcı güvenini ve piyasa itibarını artırmak.",
+      "Yolsuzluk ve etik risklere karşı sıkı denetim mekanizmaları kurarak yasal uyumu güçlendirmek.",
+      "Sürdürülebilirlik stratejilerini kurumsal yönetim süreçlerine entegre ederek uzun vadeli değer yaratmak.",
+      "İş kazalarını ve müşteri şikayetlerini minimize edecek risk önleyici programlar geliştirmek.",
+      "Diğer"
+    ]
+  },
+  {
+    category: "Tedarik Zinciri Yönetimi",
+    items: [
+      "Tedarikçilerle sürdürülebilirlik kriterlerine dayalı iş birlikleri kurarak tedarik zinciri risklerini azaltmak.",
+      "Tedarik zinciri çeşitliliği ile operasyonel kesintilere karşı dayanıklılığı artırmak.",
+      "Dijital araçlarla tedarik zinciri görünürlüğünü artırarak risk yönetimini etkinleştirmek.",
+      "Yerel tedarikçilerle çalışarak toplumsal ve çevresel fayda sağlamak ve marka değerini yükseltmek.",
+      "Diğer"
+    ]
+  },
+  {
+    category: "Düzenlemeler ve Uyum",
+    items: [
+      "Yeni düzenlemeleri yakından takip ederek uyum süreçlerini hızlandırmak ve uyumsuzluk kaynaklı cezaları önlemek.",
+      "Raporlama standartlarına tam uyum sağlayarak yatırımcı ve regülatörlerle güçlü ilişkiler kurmak.",
+      "Sürdürülebilirlik ve ESG standartlarını entegre eden ürünler geliştirerek pazar avantajı sağlamak.",
+      "Hukuki riskleri azaltmak için proaktif risk değerlendirme ve danışmanlık hizmetleri sunmak.",
+      "Diğer"
+    ]
+  },
+  {
+    category: "Toplum",
+    items: [
+      "Toplumsal dayanıklılığı artıracak mikro ve afet sigortaları ile sosyal fayda yaratmak.",
+      "Sosyal sorumluluk projeleri ve eğitim programları ile marka bağlılığını ve toplumsal güveni artırmak.",
+      "Zorunlu göç ve politik risklere karşı esnek ve kapsayıcı sigorta ürünleri sunmak.",
+      "Sosyal inovasyon projeleriyle yeni müşteri segmentlerine ulaşmak ve piyasa payını genişletmek.",
+      "Diğer"
+    ]
+  },
+  {
+    category: "Doğal Afet",
+    items: [
+      "Afet risklerini azaltan erken uyarı sistemleriyle entegre sigorta çözümleri sunmak.",
+      "Afet sonrası hızlı tazminat süreçleri ve destek hizmetleriyle müşteri sadakatini artırmak.",
+      "Afet risk modellerini geliştirerek risk fiyatlamasında rekabet avantajı sağlamak.",
+      "Afet dayanıklılığı artıran eğitim ve bilinçlendirme programlarıyla toplumda risk farkındalığını yükseltmek.",
       "Diğer"
     ]
   }
