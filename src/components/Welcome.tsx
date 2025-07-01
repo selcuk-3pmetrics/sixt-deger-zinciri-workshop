@@ -20,20 +20,20 @@ const Welcome = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#FF5F00]/20 to-black/5 flex flex-col items-center justify-between p-4">
+    <div className="min-h-screen bg-gradient-to-b from-[#6B5B95]/20 to-purple-100/30 flex flex-col items-center justify-between p-4">
       <div className="max-w-4xl w-full flex-grow flex flex-col items-center justify-center space-y-8">
         <div className="flex flex-col items-center">
-          <img src="/lovable-uploads/415d1ce0-45d3-45b0-a58f-540cff10c43c.png" alt="Sixt Logo" className="h-20" />
+          <img src="/lovable-uploads/9092790b-b61a-4c04-ad95-f64c50efdae8.png" alt="Magdeburger Sigorta Logo" className="h-20" />
         </div>
         
-        <h1 className="text-4xl font-bold text-center text-[#FF5F00] mb-6">
+        <h1 className="text-4xl font-bold text-center text-[#6B5B95] mb-6">
           Değer Zinciri Çalışmasına Hoşgeldiniz
         </h1>
         
         <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-lg">
           <p className="text-lg text-gray-700 leading-relaxed mb-8">
             Merhabalar, Hoş Geldiniz!<br/><br/>
-            Bu çalışmada, Sixt Değer Zinciri Adımları ile risk, fırsat ve önemlilik konularını eşleştirerek kapsamlı bir analiz gerçekleştireceğiz. Her bir değer zinciri adımını detaylı şekilde ele alarak, süreçlerdeki olası riskleri tanımlayacak, bu risklerin derecelerini ortaya koyacak ve fırsatları belirleyeceğiz. Ayrıca, her adımın şirketin sürdürülebilirliği ve stratejik hedefleri açısından önemlilik derecesini değerlendireceğiz.<br/><br/>
+            Bu çalışmada, Magdeburger Sigorta Değer Zinciri Adımları ile risk, fırsat ve önemlilik konularını eşleştirerek kapsamlı bir analiz gerçekleştireceğiz. Her bir değer zinciri adımını detaylı şekilde ele alarak, süreçlerdeki olası riskleri tanımlayacak, bu risklerin derecelerini ortaya koyacak ve fırsatları belirleyeceğiz. Ayrıca, her adımın şirketin sürdürülebilirliği ve stratejik hedefleri açısından önemlilik derecesini değerlendireceğiz.<br/><br/>
             Bu analiz, hem operasyonel süreçlerin iyileştirilmesine hem de uzun vadeli büyüme ve başarı hedeflerinin daha sağlam temellere oturtulmasına katkı sağlayacaktır.
           </p>
           
@@ -51,7 +51,7 @@ const Welcome = () => {
                 className="w-full"
               />
             </div>
-            <Button type="submit" className="w-full bg-[#FF5F00] hover:bg-[#FF5F00]/90">
+            <Button type="submit" className="w-full bg-[#6B5B95] hover:bg-[#6B5B95]/90">
               Giriş Yap
             </Button>
           </form>
