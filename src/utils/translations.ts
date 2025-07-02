@@ -1,14 +1,21 @@
 export const departments = {
-  damage: "Hasar (Tazminat) Departmanı",
-  underwriting: "Underwriting (Risk Değerlendirme) Departmanı",
-  actuarial: "Aktüerya Departmanı",
-  "sales-marketing": "Satış ve Pazarlama Departmanı",
-  "customer-service": "Müşteri Hizmetleri Departmanı",
-  "finance-accounting": "Finans ve Muhasebe Departmanı",
-  it: "Bilgi Tekonolojileri (IT) Departmanı",
-  "risk-compliance": "Risk Yönetimi ve Uyum (Compliance) Departmanı",
-  "product-development": "Ürün Geliştirme Departmanı",
-  hr: "İnsan Kaynakları (İK) Departmanı"
+  "top-management": "Üst Yönetim",
+  "internal-audit": "İç Denetim",
+  "risk-compliance": "Risk Yönetimi ve Uyum",
+  "actuarial": "Aktüerya",
+  "internal-control": "İç kontrol",
+  "auto-technical": "Oto Teknik Genel",
+  "non-auto-technical": "Oto Dışı Teknik ve Reasürans",
+  "damage-legal": "Hasar, Hukuk ve Rucu",
+  "financial": "Mali İşler",
+  "corporate-sales": "Kurumsal Satış ve Alternatif Dağıtım Kanalları",
+  "it": "Bilgi Tekonolojileri",
+  "continuous-improvement": "Sürekli İyileştirme ve Operasyonel Mükemmellik",
+  "hr-admin": "İnsan Kaynakları&İdari İşler",
+  "reporting": "Raporlama",
+  "bank-reinsurance": "Banka Reasürans",
+  "business-development": "İş Geliştirme ve Strateji",
+  "turkey-regions": "Türkiye Bölgeler Acenteler Satış ve Pazarlama"
 } as const;
 
 export const valueChainSteps = {
